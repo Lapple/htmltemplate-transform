@@ -1,0 +1,26 @@
+{
+  "name": "htmltemplate-transform",
+  "version": "0.0.0",
+  "description": "Pluggable transforms for HTML::Template",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha 'test/**/*.js'"
+  },
+  "keywords": [
+    "htmltemplate"
+  ],
+  "author": "Aziz Yuldoshev",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Lapple/htmltemplate-transform.git"
+  },
+  "dependencies": {
+    "htmltemplate-parser": "0.3.0",
+    "traverse": "0.6.6"
+  },
+  "devDependencies": {
+    "mocha": "2.3.2",
+    "object-assign": "^4.0.1"
+  }
+}

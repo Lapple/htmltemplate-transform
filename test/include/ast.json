@@ -1,0 +1,171 @@
+[
+    {
+        "type": "Tag",
+        "name": "TMPL_BLOCK",
+        "attributes": [
+            {
+                "type": "SingleAttribute",
+                "name": "nested-include_inc"
+            }
+        ],
+        "content": [
+            {
+                "type": "HTMLTag",
+                "name": "h2",
+                "attributes": [],
+                "content": [
+                    {
+                        "type": "Text",
+                        "content": "Nested",
+                        "position": {
+                            "line": 1,
+                            "column": 5
+                        }
+                    }
+                ],
+                "position": {
+                    "line": 1,
+                    "column": 1
+                }
+            },
+            {
+                "type": "Text",
+                "content": "\n",
+                "position": {
+                    "line": 1,
+                    "column": 16
+                }
+            }
+        ]
+    },
+    {
+        "type": "Tag",
+        "name": "TMPL_BLOCK",
+        "attributes": [
+            {
+                "type": "SingleAttribute",
+                "name": "include_inc"
+            }
+        ],
+        "content": [
+            {
+                "type": "HTMLTag",
+                "name": "h1",
+                "attributes": [],
+                "content": [
+                    {
+                        "type": "Text",
+                        "content": "\n    Included\n    ",
+                        "position": {
+                            "line": 1,
+                            "column": 5
+                        }
+                    },
+                    {
+                        "type": "Tag",
+                        "name": "TMPL_INLINE",
+                        "attributes": [
+                            {
+                                "type": "SingleAttribute",
+                                "name": "nested-include_inc"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Text",
+                        "content": "\n",
+                        "position": {
+                            "line": 3,
+                            "column": 40
+                        }
+                    }
+                ],
+                "position": {
+                    "line": 1,
+                    "column": 1
+                }
+            },
+            {
+                "type": "Text",
+                "content": "\n",
+                "position": {
+                    "line": 4,
+                    "column": 6
+                }
+            }
+        ]
+    },
+    {
+        "type": "HTMLTag",
+        "name": "div",
+        "attributes": [
+            {
+                "type": "PairAttribute",
+                "name": "class",
+                "value": "layout",
+                "position": {
+                    "line": 1,
+                    "column": 6
+                }
+            }
+        ],
+        "content": [
+            {
+                "type": "Text",
+                "content": "\n    ",
+                "position": {
+                    "line": 1,
+                    "column": 21
+                }
+            },
+            {
+                "type": "Tag",
+                "name": "TMPL_INLINE",
+                "attributes": [
+                    {
+                        "type": "SingleAttribute",
+                        "name": "include_inc"
+                    }
+                ]
+            },
+            {
+                "type": "Text",
+                "content": "\n    ",
+                "position": {
+                    "line": 2,
+                    "column": 37
+                }
+            },
+            {
+                "type": "Tag",
+                "name": "TMPL_INLINE",
+                "attributes": [
+                    {
+                        "type": "SingleAttribute",
+                        "name": "nested-include_inc"
+                    }
+                ]
+            },
+            {
+                "type": "Text",
+                "content": "\n",
+                "position": {
+                    "line": 3,
+                    "column": 44
+                }
+            }
+        ],
+        "position": {
+            "line": 1,
+            "column": 1
+        }
+    },
+    {
+        "type": "Text",
+        "content": "\n",
+        "position": {
+            "line": 4,
+            "column": 7
+        }
+    }
+]
