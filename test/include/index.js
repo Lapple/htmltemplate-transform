@@ -3,7 +3,7 @@ var path = require('path');
 var assert = require('assert');
 
 var transform = require('../..');
-var include = require('../../lib/plugins/include');
+var include = require('../../plugins/include');
 
 describe('include transform', function() {
     before(function() {
