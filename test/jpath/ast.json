@@ -1,0 +1,297 @@
+[
+    {
+        "type": "Tag",
+        "name": "TMPL_VAR",
+        "attributes": [
+            {
+                "type": "Expression",
+                "value": "a.b.c",
+                "position": {
+                    "line": 1,
+                    "column": 11
+                },
+                "content": {
+                    "type": "BinaryExpression",
+                    "operator": "&&",
+                    "left": {
+                        "type": "BinaryExpression",
+                        "operator": "&&",
+                        "left": {
+                            "type": "Identifier",
+                            "name": "$a"
+                        },
+                        "right": {
+                            "type": "MemberExpression",
+                            "object": {
+                                "type": "Identifier",
+                                "name": "$a"
+                            },
+                            "property": {
+                                "type": "Literal",
+                                "value": "b"
+                            }
+                        }
+                    },
+                    "right": {
+                        "type": "MemberExpression",
+                        "object": {
+                            "type": "MemberExpression",
+                            "object": {
+                                "type": "Identifier",
+                                "name": "$a"
+                            },
+                            "property": {
+                                "type": "Literal",
+                                "value": "b"
+                            }
+                        },
+                        "property": {
+                            "type": "Literal",
+                            "value": "c"
+                        }
+                    }
+                }
+            }
+        ],
+        "position": {
+            "line": 1,
+            "column": 1
+        }
+    },
+    {
+        "type": "Text",
+        "content": "\n",
+        "position": {
+            "line": 1,
+            "column": 17
+        }
+    },
+    {
+        "type": "Tag",
+        "name": "TMPL_VAR",
+        "attributes": [
+            {
+                "type": "Expression",
+                "value": "a.1.c.3.field",
+                "position": {
+                    "line": 2,
+                    "column": 11
+                },
+                "content": {
+                    "type": "BinaryExpression",
+                    "operator": "&&",
+                    "left": {
+                        "type": "BinaryExpression",
+                        "operator": "&&",
+                        "left": {
+                            "type": "BinaryExpression",
+                            "operator": "&&",
+                            "left": {
+                                "type": "BinaryExpression",
+                                "operator": "&&",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "$a"
+                                },
+                                "right": {
+                                    "type": "MemberExpression",
+                                    "object": {
+                                        "type": "Identifier",
+                                        "name": "$a"
+                                    },
+                                    "property": {
+                                        "type": "Literal",
+                                        "value": 1
+                                    }
+                                }
+                            },
+                            "right": {
+                                "type": "MemberExpression",
+                                "object": {
+                                    "type": "MemberExpression",
+                                    "object": {
+                                        "type": "Identifier",
+                                        "name": "$a"
+                                    },
+                                    "property": {
+                                        "type": "Literal",
+                                        "value": 1
+                                    }
+                                },
+                                "property": {
+                                    "type": "Literal",
+                                    "value": "c"
+                                }
+                            }
+                        },
+                        "right": {
+                            "type": "MemberExpression",
+                            "object": {
+                                "type": "MemberExpression",
+                                "object": {
+                                    "type": "MemberExpression",
+                                    "object": {
+                                        "type": "Identifier",
+                                        "name": "$a"
+                                    },
+                                    "property": {
+                                        "type": "Literal",
+                                        "value": 1
+                                    }
+                                },
+                                "property": {
+                                    "type": "Literal",
+                                    "value": "c"
+                                }
+                            },
+                            "property": {
+                                "type": "Literal",
+                                "value": 3
+                            }
+                        }
+                    },
+                    "right": {
+                        "type": "MemberExpression",
+                        "object": {
+                            "type": "MemberExpression",
+                            "object": {
+                                "type": "MemberExpression",
+                                "object": {
+                                    "type": "MemberExpression",
+                                    "object": {
+                                        "type": "Identifier",
+                                        "name": "$a"
+                                    },
+                                    "property": {
+                                        "type": "Literal",
+                                        "value": 1
+                                    }
+                                },
+                                "property": {
+                                    "type": "Literal",
+                                    "value": "c"
+                                }
+                            },
+                            "property": {
+                                "type": "Literal",
+                                "value": 3
+                            }
+                        },
+                        "property": {
+                            "type": "Literal",
+                            "value": "field"
+                        }
+                    }
+                }
+            }
+        ],
+        "position": {
+            "line": 2,
+            "column": 1
+        }
+    },
+    {
+        "type": "Text",
+        "content": "\n",
+        "position": {
+            "line": 2,
+            "column": 25
+        }
+    },
+    {
+        "type": "Tag",
+        "name": "TMPL_VAR",
+        "attributes": [
+            {
+                "type": "SingleAttribute",
+                "name": "label",
+                "value": null,
+                "position": {
+                    "line": 3,
+                    "column": 11
+                }
+            },
+            {
+                "type": "PairAttribute",
+                "name": "attribute",
+                "value": {
+                    "type": "Expression",
+                    "content": {
+                        "type": "BinaryExpression",
+                        "operator": "&&",
+                        "left": {
+                            "type": "BinaryExpression",
+                            "operator": "&&",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "$nested"
+                            },
+                            "right": {
+                                "type": "MemberExpression",
+                                "object": {
+                                    "type": "Identifier",
+                                    "name": "$nested"
+                                },
+                                "property": {
+                                    "type": "Literal",
+                                    "value": "attribute"
+                                }
+                            }
+                        },
+                        "right": {
+                            "type": "MemberExpression",
+                            "object": {
+                                "type": "MemberExpression",
+                                "object": {
+                                    "type": "Identifier",
+                                    "name": "$nested"
+                                },
+                                "property": {
+                                    "type": "Literal",
+                                    "value": "attribute"
+                                }
+                            },
+                            "property": {
+                                "type": "Literal",
+                                "value": "access"
+                            }
+                        }
+                    },
+                    "value": "nested.attribute.access"
+                },
+                "position": {
+                    "line": 4,
+                    "column": 5
+                }
+            }
+        ],
+        "position": {
+            "line": 3,
+            "column": 1
+        }
+    },
+    {
+        "type": "Text",
+        "content": "\n",
+        "position": {
+            "line": 4,
+            "column": 39
+        }
+    },
+    {
+        "type": "Comment",
+        "content": " TODO: More tests after htmltemplate-parser fix.",
+        "position": {
+            "line": 5,
+            "column": 1
+        }
+    },
+    {
+        "type": "Text",
+        "content": "\n",
+        "position": {
+            "line": 5,
+            "column": 51
+        }
+    }
+]

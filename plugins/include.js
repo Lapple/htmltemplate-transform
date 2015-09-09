@@ -18,6 +18,10 @@ function inline(options) {
     var blocks = {};
 
     function transform(node, isNested) {
+        if (this.isLeaf) {
+            return;
+        }
+
         // On each include call a TMPL_BLOCK definition is created in the top
         // level scope which is then TMPL_INLINEd into the original location.
         // Block paths are hashed to avoid duplication.
@@ -64,10 +68,6 @@ function inline(options) {
             );
 
             var updated = traverse(ast).map(function(n) {
-                if (this.isLeaf) {
-                    return;
-                }
-
                 this.state = assign({}, state, {
                     rootFilepath: include
                 });
