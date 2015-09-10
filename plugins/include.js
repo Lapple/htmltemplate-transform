@@ -77,15 +77,21 @@ function inline(options) {
 
             blocks[id] = updated;
 
+            var attributes = node.attributes.map(function(attribute) {
+                if (isPrimaryAttribute(attribute)) {
+                    return {
+                        type: 'SingleAttribute',
+                        name: id
+                    };
+                } else {
+                    return attribute;
+                }
+            });
+
             this.update({
                 type: 'Tag',
                 name: 'TMPL_INLINE',
-                attributes: [
-                    {
-                        type: 'SingleAttribute',
-                        name: id
-                    }
-                ]
+                attributes: attributes
             });
         }
     }
@@ -93,16 +99,18 @@ function inline(options) {
     return transform;
 }
 
+function isPrimaryAttribute(attribute) {
+    return (
+        attribute.type === 'SingleAttribute' ||
+        (
+            attribute.type === 'PairAttribute' &&
+            attribute.name === 'name'
+        )
+    );
+}
+
 function getPrimaryAttributeValue(attributes) {
-    var primary = attributes.filter(function(attribute) {
-        return (
-            attribute.type === 'SingleAttribute' ||
-            (
-                attribute.type === 'PairAttribute' &&
-                attribute.name === 'name'
-            )
-        );
-    })[0];
+    var primary = attributes.filter(isPrimaryAttribute)[0];
 
     if (primary) {
         return primary.value || primary.name;

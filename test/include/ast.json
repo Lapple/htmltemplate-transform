@@ -15,8 +15,19 @@
                 "attributes": [],
                 "content": [
                     {
-                        "type": "Text",
-                        "content": "Nested",
+                        "type": "Tag",
+                        "name": "TMPL_VAR",
+                        "attributes": [
+                            {
+                                "type": "SingleAttribute",
+                                "name": "title",
+                                "value": null,
+                                "position": {
+                                    "line": 1,
+                                    "column": 15
+                                }
+                            }
+                        ],
                         "position": {
                             "line": 1,
                             "column": 5
@@ -33,7 +44,7 @@
                 "content": "\n",
                 "position": {
                     "line": 1,
-                    "column": 16
+                    "column": 26
                 }
             }
         ]
@@ -68,6 +79,15 @@
                             {
                                 "type": "SingleAttribute",
                                 "name": "nested-include_inc"
+                            },
+                            {
+                                "type": "PairAttribute",
+                                "name": "title",
+                                "value": "Nested",
+                                "position": {
+                                    "line": 4,
+                                    "column": 9
+                                }
                             }
                         ]
                     },
@@ -75,8 +95,8 @@
                         "type": "Text",
                         "content": "\n",
                         "position": {
-                            "line": 3,
-                            "column": 40
+                            "line": 4,
+                            "column": 24
                         }
                     }
                 ],
@@ -89,7 +109,7 @@
                 "type": "Text",
                 "content": "\n",
                 "position": {
-                    "line": 4,
+                    "line": 5,
                     "column": 6
                 }
             }
@@ -143,6 +163,15 @@
                     {
                         "type": "SingleAttribute",
                         "name": "nested-include_inc"
+                    },
+                    {
+                        "type": "PairAttribute",
+                        "name": "title",
+                        "value": "Top level",
+                        "position": {
+                            "line": 4,
+                            "column": 9
+                        }
                     }
                 ]
             },
@@ -150,8 +179,8 @@
                 "type": "Text",
                 "content": "\n",
                 "position": {
-                    "line": 3,
-                    "column": 44
+                    "line": 4,
+                    "column": 27
                 }
             }
         ],
@@ -164,7 +193,7 @@
         "type": "Text",
         "content": "\n",
         "position": {
-            "line": 4,
+            "line": 5,
             "column": 7
         }
     }
