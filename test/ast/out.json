@@ -1,0 +1,29 @@
+[
+    {
+        "type": "Tag",
+        "name": "TMPL_VAR",
+        "attributes": [
+            {
+                "type": "SingleAttribute",
+                "name": "b",
+                "value": null,
+                "position": {
+                    "line": 1,
+                    "column": 11
+                }
+            }
+        ],
+        "position": {
+            "line": 1,
+            "column": 1
+        }
+    },
+    {
+        "type": "Text",
+        "content": "\n",
+        "position": {
+            "line": 1,
+            "column": 13
+        }
+    }
+]
