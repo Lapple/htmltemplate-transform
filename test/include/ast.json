@@ -84,6 +84,14 @@
                                 "type": "PairAttribute",
                                 "name": "title",
                                 "value": "Nested",
+                                "content": {
+                                    "type": "Literal",
+                                    "value": "Nested",
+                                    "position": {
+                                        "line": 4,
+                                        "column": 15
+                                    }
+                                },
                                 "position": {
                                     "line": 4,
                                     "column": 9
@@ -168,6 +176,14 @@
                         "type": "PairAttribute",
                         "name": "title",
                         "value": "Top level",
+                        "content": {
+                            "type": "Literal",
+                            "value": "Top level",
+                            "position": {
+                                "line": 4,
+                                "column": 15
+                            }
+                        },
                         "position": {
                             "line": 4,
                             "column": 9

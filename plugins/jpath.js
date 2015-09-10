@@ -6,7 +6,7 @@ function jpath() {
             return;
         }
 
-        if (node.type === 'SingleAttribute' && isJPathAccessToken(node.name)) {
+        if (node.type === 'SingleAttribute' && node.name.indexOf('.') !== -1) {
             var updated = assign({}, node, {
                 type: 'Expression',
                 content: accessExpression(node.name),
@@ -18,7 +18,7 @@ function jpath() {
             this.update(updated);
         }
 
-        if (node.type === 'PairAttribute' && isJPathAccessToken(node.value)) {
+        if (node.type === 'PairAttribute' && isJPathAccessToken(node.content)) {
             var updated = assign({}, node, {
                 value: {
                     type: 'Expression',
@@ -26,6 +26,8 @@ function jpath() {
                     value: node.value
                 }
             });
+
+            delete updated.content;
 
             this.update(updated);
         }
@@ -71,16 +73,11 @@ function memberExpression(path) {
         });
 }
 
-function isJPathAccessToken(name) {
+function isJPathAccessToken(node) {
     return (
-        !isQuote(name.charAt(0)) &&
-        !isQuote(name.charAt(name.length - 1)) &&
-        name.indexOf('.') !== -1
+        node.type === 'Identifier' &&
+        node.name.indexOf('.') !== -1
     );
-}
-
-function isQuote(character) {
-    return character === '"' || character === '\'';
 }
 
 module.exports = jpath;

@@ -279,8 +279,36 @@
         }
     },
     {
-        "type": "Comment",
-        "content": " TODO: More tests after htmltemplate-parser fix.",
+        "type": "Tag",
+        "name": "TMPL_VAR",
+        "attributes": [
+            {
+                "type": "SingleAttribute",
+                "name": "label",
+                "value": null,
+                "position": {
+                    "line": 5,
+                    "column": 11
+                }
+            },
+            {
+                "type": "PairAttribute",
+                "name": "attribute",
+                "value": "dotted.string",
+                "content": {
+                    "type": "Literal",
+                    "value": "dotted.string",
+                    "position": {
+                        "line": 6,
+                        "column": 15
+                    }
+                },
+                "position": {
+                    "line": 6,
+                    "column": 5
+                }
+            }
+        ],
         "position": {
             "line": 5,
             "column": 1
@@ -290,8 +318,8 @@
         "type": "Text",
         "content": "\n",
         "position": {
-            "line": 5,
-            "column": 51
+            "line": 6,
+            "column": 31
         }
     }
 ]
