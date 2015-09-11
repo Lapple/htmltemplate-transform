@@ -23,11 +23,6 @@ describe('include transform', function() {
                     includeTags: ['TMPL_INCLUDE'],
                     resolvePath: function(tagname, from, to) {
                         return path.resolve(path.dirname(from), to);
-                    },
-                    // NOTE: This is just to make sure that tests have the same
-                    // regardless of project location.
-                    hashTemplateFileName: function(filename) {
-                        return path.basename(filename).replace(/\./, '_');
                     }
                 })
             )

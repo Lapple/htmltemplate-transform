@@ -5,7 +5,7 @@
         "attributes": [
             {
                 "type": "SingleAttribute",
-                "name": "nested-include_inc"
+                "name": "inc_nested_include_inc"
             }
         ],
         "content": [
@@ -55,7 +55,7 @@
         "attributes": [
             {
                 "type": "SingleAttribute",
-                "name": "include_inc"
+                "name": "inc_include_inc"
             }
         ],
         "content": [
@@ -78,7 +78,7 @@
                         "attributes": [
                             {
                                 "type": "SingleAttribute",
-                                "name": "nested-include_inc"
+                                "name": "inc_nested_include_inc"
                             },
                             {
                                 "type": "PairAttribute",
@@ -152,7 +152,7 @@
                 "attributes": [
                     {
                         "type": "SingleAttribute",
-                        "name": "include_inc"
+                        "name": "inc_include_inc"
                     }
                 ]
             },
@@ -170,7 +170,7 @@
                 "attributes": [
                     {
                         "type": "SingleAttribute",
-                        "name": "nested-include_inc"
+                        "name": "inc_nested_include_inc"
                     },
                     {
                         "type": "PairAttribute",

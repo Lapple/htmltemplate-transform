@@ -1,6 +1,5 @@
 var fs = require('fs');
 var path = require('path');
-var crypto = require('crypto');
 var assert = require('assert');
 
 var assign = require('object-assign');
@@ -10,7 +9,6 @@ var parser = require('htmltemplate-parser');
 function inline(options) {
     var tags = options.includeTags;
     var resolvePath = options.resolvePath;
-    var hashTemplateFileName = options.hashTemplateFileName || hash;
 
     assert(Array.isArray(tags), 'Expected options.includeTags to be an array of available include tags.');
     assert.equal(typeof resolvePath, 'function', 'Expected options.resolvePath to be a function.');
@@ -26,6 +24,8 @@ function inline(options) {
         // level scope which is then TMPL_INLINEd into the original location.
         // Block paths are hashed to avoid duplication.
         if (this.isRoot && !isNested) {
+            this.state.parentFilePath = this.state.rootFilepath;
+
             this.after(function(root) {
                 this.update(
                     Object.keys(blocks)
@@ -59,8 +59,14 @@ function inline(options) {
                 return;
             }
 
-            var include = resolvePath(node.name, state.rootFilepath, filename);
-            var id = hashTemplateFileName(include);
+            var include = resolvePath(node.name, state.parentFilePath, filename);
+
+            var id = filepathAsBlockId(
+                // Resolving the included filepath against root filepath to
+                // have both human-readable output and disregard project
+                // location.
+                path.relative(path.dirname(state.rootFilepath), include)
+            );
 
             var ast = parser.parse(
                 fs.readFileSync(include, 'utf8'),
@@ -69,7 +75,7 @@ function inline(options) {
 
             var updated = traverse(ast).map(function(n) {
                 this.state = assign({}, state, {
-                    rootFilepath: include
+                    parentFilePath: include
                 });
 
                 transform.call(this, n, true);
@@ -119,8 +125,8 @@ function getPrimaryAttributeValue(attributes) {
     }
 }
 
-function hash(string) {
-    return 'block_' + crypto.createHash('md5').update(string).digest('hex');
+function filepathAsBlockId(string) {
+    return string.replace(/[^a-zA-Z0-9_]/g, '_');
 }
 
 module.exports = inline;
