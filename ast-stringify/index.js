@@ -2,6 +2,10 @@ var traverse = require('traverse');
 
 var attributes = require('./attributes');
 
+var position = require('./position');
+
+var t = position.track;
+
 function handler() {
     if (!this.node) {
         return;
@@ -12,19 +16,21 @@ function handler() {
 
         var alternate = ifs.alternate ? ('<TMPL_ELSE>' + ifs.alternate) : '';
 
-        return '<TMPL_IF ' + ifs.test + '>' +
-            ifs.consequent + alternate +
-        '</TMPL_IF>';
+        return this.update(
+            t('<TMPL_IF ') + t(ifs.test) + t('>') +
+                ifs.consequent + alternate +
+            t('</TMPL_IF>'),
+        true);
     }
 
     if (this.node.type === 'Tag' || this.node.type === 'InvalidTag') {
-        var tagOpen = '<' + this.node.name + attributes(this.node) + '>';
+        var tagOpen = t('<') + t(this.node.name) + attributes(this.node) + t('>');
 
         if (this.node.content) {
             return this.update(
                 tagOpen +
                     transform(this.node.content) +
-                '</' + this.node.name + '>',
+                t('</') + t(this.node.name) + t('>'),
             true);
         }
 
@@ -34,7 +40,7 @@ function handler() {
     }
 
     if (this.node.type === 'Text') {
-        return this.update(this.node.content);
+        return this.update(t(this.node.content));
     }
 }
 

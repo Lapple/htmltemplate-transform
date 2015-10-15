@@ -1,18 +1,23 @@
 <div class="app">
     <h2><TMPL_VAR title></h2>
 
-    <p><TMPL_VAR description></p>
+    <p><TMPL_VAR
+                description></p>
 
     <ul class="list">
-        <TMPL_LOOP people>
+        <TMPL_LOOP
+        people>
             <li class="item <TMPL_IF active>item--active</TMPL_IF>" onclick="itemClick(<TMPL_VAR id>)">
                 <TMPL_VAR name> <a href="#/items/<TMPL_VAR id>">some link</a>
 
                 <div class="input"><input type="text" placeholder="Type something here"/></div>
 
                 <ul>
-                    <TMPL_LOOP inner>
-                        <li><TMPL_VAR title></li>
+                    <TMPL_LOOP
+
+
+                    inner>
+                        <li><TMPL_VAR    title></li>
                     </TMPL_LOOP>
                 </ul>
 
@@ -31,6 +36,6 @@
     </ul>
 
     <div>
-        <a href="<TMPL_VAR githubLink>"><TMPL_VAR githubLink></a>
+        <a href="<TMPL_VAR githubLink>"><TMPL_VAR     githubLink></a>
     </div>
 </div>
