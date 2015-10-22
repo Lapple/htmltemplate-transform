@@ -1,0 +1,42 @@
+#!/usr/bin/env node
+
+var path = require('path');
+
+var fs = require('fs');
+
+var parser = require('htmltemplate-parser');
+
+var astStringify = require('../ast-stringify/');
+
+var transform = require('../');
+
+var optimizeConditions = require('../plugins/optimize-conditions');
+
+var argv = require('yargs')
+    .usage('Usage: $0 [options]')
+    .options({
+        'path': {
+            demand: true,
+            describe: 'file to compile',
+            type: 'string'
+        }
+    })
+    .argv;
+
+var templateString = fs.readFileSync(argv.path).toString();
+
+var AST = parser.parse(templateString, { ignoreHTMLTags: true });
+
+transform(argv.path, null, { ignoreHTMLTags: true })
+.using(
+    optimizeConditions({
+        '$falsy': false
+    })
+)
+.toAST(function(err, ast) {
+    if (err) {
+        return console.error(err);
+    }
+
+    console.log(astStringify(ast));
+});

@@ -1,0 +1,7 @@
+<div class="app">
+    <TMPL_IF [% $falsy %]>yes<TMPL_ELSE>no</TMPL_IF>
+    <TMPL_IF [% $other %]>yes<TMPL_ELSE>no</TMPL_IF>
+    <TMPL_IF [% $something eq 'something' && $falsy %]>yes<TMPL_ELSE>no</TMPL_IF>
+    <TMPL_IF [% $falsy && $other %]>yes<TMPL_ELSE>no</TMPL_IF>
+    <TMPL_IF [% $falsy || $something %]>yes<TMPL_ELSE>no</TMPL_IF>
+</div>

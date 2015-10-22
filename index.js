@@ -1,5 +1,5 @@
 var Transform = require('./lib/transform');
 
-module.exports = function(file, parserOptions) {
-    return new Transform(file, parserOptions);
+module.exports = function(file, ast, parserOptions) {
+    return new Transform(file, ast, parserOptions);
 };
