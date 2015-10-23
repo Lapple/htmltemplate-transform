@@ -11,6 +11,12 @@ function handler() {
         return;
     }
 
+    if (this.node.type === 'Comment') {
+        return this.update(
+            t('##' + this.node.content)
+        , true);
+    }
+
     if (this.node.type === 'Condition') {
         var ifs = require('./if-statement')(this, transform);
 
@@ -49,5 +55,7 @@ function transform(ast) {
 }
 
 module.exports = function(ast) {
+    position.reset();
+
     return transform(ast);
 };

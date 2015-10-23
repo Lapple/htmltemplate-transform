@@ -6,6 +6,13 @@ var position = {
 };
 
 module.exports = {
+    reset: function() {
+        position = {
+            line: 1,
+            column: 1
+        }
+    },
+
     getCurrent: function() {
         return position;
     },

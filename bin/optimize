@@ -17,8 +17,12 @@ var argv = require('yargs')
     .options({
         'path': {
             demand: true,
-            describe: 'file to compile',
+            describe: 'file to optimize',
             type: 'string'
+        },
+
+        'test': {
+            describe: 'display the result of the test'
         }
     })
     .argv;
@@ -33,9 +37,23 @@ transform(argv.path, null, { ignoreHTMLTags: true })
         '$falsy': false
     })
 )
-.toAST(function(err, ast) {
+.toAST(function(err, optimizedAST) {
     if (err) {
         return console.error(err);
+    }
+
+    if (argv.test) {
+        var templateFromInitialAST = astStringify(AST);
+        var templateFromOptimizedAST = astStringify(optimizedAST);
+
+        if (templateString !== templateFromInitialAST) {
+            console.log('%s: initial difference', argv.path);
+        }
+
+        if (templateString !== templateFromOptimizedAST) {
+            console.log('%s: optimizations possible', argv.path);
+        }
+        return;
     }
 
     console.log(astStringify(ast));
