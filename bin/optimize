@@ -56,5 +56,5 @@ transform(argv.path, null, { ignoreHTMLTags: true })
         return;
     }
 
-    console.log(astStringify(ast));
+    console.log(astStringify(optimizedAST));
 });
