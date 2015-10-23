@@ -23,9 +23,9 @@ function handler() {
         var alternate = ifs.alternate ? ('<TMPL_ELSE>' + ifs.alternate) : '';
 
         return this.update(
-            t('<TMPL_IF ') + t(ifs.test) + t('>') +
+            t('<') + t(this.node.name) + t(' ') + t(ifs.test) + t('>') +
                 ifs.consequent + alternate +
-            t('</TMPL_IF>'),
+            t('</') + t(this.node.name) + t('>'),
         true);
     }
 
