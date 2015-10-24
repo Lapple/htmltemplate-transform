@@ -1,0 +1,34 @@
+<TMPL_LOOP b_item>
+    <div class="common">
+        This part is common for all items.
+    </div>
+
+    <TMPL_IF b_unskip>
+        <div class="unskipped">
+            This item is unskipped.
+        </div>
+    <TMPL_ELSIF b_skip_after>
+        <div class="not-skipped">
+            This one is output for non-skipped.
+        </div>
+        <TMPL_CONTINUE>
+    <TMPL_ELSE>
+        <TMPL_CONTINUE>
+    </TMPL_IF>
+
+    <div class="can-be-skipped">
+        <TMPL_VAR b_value>
+    </div>
+
+    <TMPL_IF b_dont_skip_if_not_skipped_yet>
+        <div class="not-skipped">
+            This one is output for non-skipped.
+        </div>
+    <TMPL_ELSE>
+        <TMPL_CONTINUE>
+    </TMPL_IF>
+
+    <div class="can-be-skipped-2">
+        <TMPL_VAR b_value>
+    </div>
+</TMPL_LOOP>

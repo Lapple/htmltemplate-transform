@@ -1,0 +1,621 @@
+[
+    {
+        "type": "Tag",
+        "name": "TMPL_LOOP",
+        "attributes": [
+            {
+                "type": "SingleAttribute",
+                "name": "b_item",
+                "value": null,
+                "position": {
+                    "line": 1,
+                    "column": 12
+                }
+            }
+        ],
+        "content": [
+            {
+                "type": "Text",
+                "content": "\n    ",
+                "position": {
+                    "line": 1,
+                    "column": 19
+                }
+            },
+            {
+                "type": "HTMLTag",
+                "name": "div",
+                "attributes": [
+                    {
+                        "type": "PairAttribute",
+                        "name": "class",
+                        "value": "common",
+                        "position": {
+                            "line": 2,
+                            "column": 10
+                        }
+                    }
+                ],
+                "content": [
+                    {
+                        "type": "Text",
+                        "content": "\n        This part is common for all items.\n    ",
+                        "position": {
+                            "line": 2,
+                            "column": 25
+                        }
+                    }
+                ],
+                "position": {
+                    "line": 2,
+                    "column": 5
+                }
+            },
+            {
+                "type": "Text",
+                "content": "\n\n    ",
+                "position": {
+                    "line": 4,
+                    "column": 11
+                }
+            },
+            {
+                "type": "Condition",
+                "name": "TMPL_IF",
+                "conditions": [
+                    {
+                        "type": "ConditionBranch",
+                        "condition": {
+                            "type": "SingleAttribute",
+                            "name": "b_unskip",
+                            "value": null,
+                            "position": {
+                                "line": 6,
+                                "column": 14
+                            }
+                        },
+                        "content": [
+                            {
+                                "type": "Text",
+                                "content": "\n        ",
+                                "position": {
+                                    "line": 6,
+                                    "column": 23
+                                }
+                            },
+                            {
+                                "type": "HTMLTag",
+                                "name": "div",
+                                "attributes": [
+                                    {
+                                        "type": "PairAttribute",
+                                        "name": "class",
+                                        "value": "unskipped",
+                                        "position": {
+                                            "line": 7,
+                                            "column": 14
+                                        }
+                                    }
+                                ],
+                                "content": [
+                                    {
+                                        "type": "Text",
+                                        "content": "\n            This item is unskipped.\n        ",
+                                        "position": {
+                                            "line": 7,
+                                            "column": 32
+                                        }
+                                    }
+                                ],
+                                "position": {
+                                    "line": 7,
+                                    "column": 9
+                                }
+                            },
+                            {
+                                "type": "Text",
+                                "content": "\n    ",
+                                "position": {
+                                    "line": 9,
+                                    "column": 15
+                                }
+                            }
+                        ],
+                        "position": {
+                            "line": 6,
+                            "column": 5
+                        }
+                    },
+                    {
+                        "type": "ConditionBranch",
+                        "condition": {
+                            "type": "SingleAttribute",
+                            "name": "b_skip_after",
+                            "value": null,
+                            "position": {
+                                "line": 10,
+                                "column": 17
+                            }
+                        },
+                        "content": [
+                            {
+                                "type": "Text",
+                                "content": "\n        ",
+                                "position": {
+                                    "line": 10,
+                                    "column": 30
+                                }
+                            },
+                            {
+                                "type": "HTMLTag",
+                                "name": "div",
+                                "attributes": [
+                                    {
+                                        "type": "PairAttribute",
+                                        "name": "class",
+                                        "value": "not-skipped",
+                                        "position": {
+                                            "line": 11,
+                                            "column": 14
+                                        }
+                                    }
+                                ],
+                                "content": [
+                                    {
+                                        "type": "Text",
+                                        "content": "\n            This one is output for non-skipped.\n        ",
+                                        "position": {
+                                            "line": 11,
+                                            "column": 34
+                                        }
+                                    }
+                                ],
+                                "position": {
+                                    "line": 11,
+                                    "column": 9
+                                }
+                            },
+                            {
+                                "type": "Text",
+                                "content": "\n        ",
+                                "position": {
+                                    "line": 13,
+                                    "column": 15
+                                }
+                            },
+                            {
+                                "type": "Text",
+                                "content": "",
+                                "position": {
+                                    "line": 14,
+                                    "column": 9
+                                }
+                            },
+                            {
+                                "type": "Text",
+                                "content": "\n    ",
+                                "position": {
+                                    "line": 14,
+                                    "column": 24
+                                }
+                            }
+                        ],
+                        "position": {
+                            "line": 10,
+                            "column": 5
+                        }
+                    }
+                ],
+                "otherwise": {
+                    "type": "AlternateConditionBranch",
+                    "content": [
+                        {
+                            "type": "Text",
+                            "content": "\n        ",
+                            "position": {
+                                "line": 15,
+                                "column": 16
+                            }
+                        },
+                        {
+                            "type": "Text",
+                            "content": "",
+                            "position": {
+                                "line": 16,
+                                "column": 9
+                            }
+                        },
+                        {
+                            "type": "Text",
+                            "content": "\n    ",
+                            "position": {
+                                "line": 16,
+                                "column": 24
+                            }
+                        }
+                    ],
+                    "position": {
+                        "line": 15,
+                        "column": 5
+                    }
+                },
+                "position": {
+                    "line": 6,
+                    "column": 5
+                }
+            },
+            {
+                "type": "Condition",
+                "name": "TMPL_UNLESS",
+                "conditions": [
+                    {
+                        "type": "ConditionBranch",
+                        "condition": {
+                            "type": "BinaryExpression",
+                            "operator": "&&",
+                            "left": {
+                                "type": "UnaryExpression",
+                                "operator": "!",
+                                "argument": {
+                                    "type": "SingleAttribute",
+                                    "name": "b_unskip",
+                                    "value": null,
+                                    "position": {
+                                        "line": 6,
+                                        "column": 14
+                                    }
+                                },
+                                "prefix": true
+                            },
+                            "right": {
+                                "type": "Expression",
+                                "content": {
+                                    "type": "Identifier",
+                                    "name": "$b_skip_after"
+                                },
+                                "value": "$b_skip_after",
+                                "position": {
+                                    "line": 10,
+                                    "column": 17
+                                }
+                            }
+                        },
+                        "content": [
+                            {
+                                "type": "Condition",
+                                "name": "TMPL_UNLESS",
+                                "conditions": [
+                                    {
+                                        "type": "ConditionBranch",
+                                        "condition": {
+                                            "type": "UnaryExpression",
+                                            "operator": "!",
+                                            "argument": {
+                                                "type": "BinaryExpression",
+                                                "operator": "||",
+                                                "left": {
+                                                    "type": "Expression",
+                                                    "content": {
+                                                        "type": "Identifier",
+                                                        "name": "$b_unskip"
+                                                    },
+                                                    "value": "$b_unskip",
+                                                    "position": {
+                                                        "line": 6,
+                                                        "column": 14
+                                                    }
+                                                },
+                                                "right": {
+                                                    "type": "Expression",
+                                                    "content": {
+                                                        "type": "Identifier",
+                                                        "name": "$b_skip_after"
+                                                    },
+                                                    "value": "$b_skip_after",
+                                                    "position": {
+                                                        "line": 10,
+                                                        "column": 17
+                                                    }
+                                                }
+                                            },
+                                            "prefix": true
+                                        },
+                                        "content": [
+                                            {
+                                                "type": "Text",
+                                                "content": "\n\n    ",
+                                                "position": {
+                                                    "line": 17,
+                                                    "column": 15
+                                                }
+                                            },
+                                            {
+                                                "type": "HTMLTag",
+                                                "name": "div",
+                                                "attributes": [
+                                                    {
+                                                        "type": "PairAttribute",
+                                                        "name": "class",
+                                                        "value": "can-be-skipped",
+                                                        "position": {
+                                                            "line": 19,
+                                                            "column": 10
+                                                        }
+                                                    }
+                                                ],
+                                                "content": [
+                                                    {
+                                                        "type": "Text",
+                                                        "content": "\n        ",
+                                                        "position": {
+                                                            "line": 19,
+                                                            "column": 33
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "Tag",
+                                                        "name": "TMPL_VAR",
+                                                        "attributes": [
+                                                            {
+                                                                "type": "SingleAttribute",
+                                                                "name": "b_value",
+                                                                "value": null,
+                                                                "position": {
+                                                                    "line": 20,
+                                                                    "column": 19
+                                                                }
+                                                            }
+                                                        ],
+                                                        "position": {
+                                                            "line": 20,
+                                                            "column": 9
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "Text",
+                                                        "content": "\n    ",
+                                                        "position": {
+                                                            "line": 20,
+                                                            "column": 27
+                                                        }
+                                                    }
+                                                ],
+                                                "position": {
+                                                    "line": 19,
+                                                    "column": 5
+                                                }
+                                            },
+                                            {
+                                                "type": "Text",
+                                                "content": "\n\n    ",
+                                                "position": {
+                                                    "line": 21,
+                                                    "column": 11
+                                                }
+                                            },
+                                            {
+                                                "type": "Condition",
+                                                "name": "TMPL_IF",
+                                                "conditions": [
+                                                    {
+                                                        "type": "ConditionBranch",
+                                                        "condition": {
+                                                            "type": "SingleAttribute",
+                                                            "name": "b_dont_skip_if_not_skipped_yet",
+                                                            "value": null,
+                                                            "position": {
+                                                                "line": 23,
+                                                                "column": 14
+                                                            }
+                                                        },
+                                                        "content": [
+                                                            {
+                                                                "type": "Text",
+                                                                "content": "\n        ",
+                                                                "position": {
+                                                                    "line": 23,
+                                                                    "column": 45
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "HTMLTag",
+                                                                "name": "div",
+                                                                "attributes": [
+                                                                    {
+                                                                        "type": "PairAttribute",
+                                                                        "name": "class",
+                                                                        "value": "not-skipped",
+                                                                        "position": {
+                                                                            "line": 24,
+                                                                            "column": 14
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "content": [
+                                                                    {
+                                                                        "type": "Text",
+                                                                        "content": "\n            This one is output for non-skipped.\n        ",
+                                                                        "position": {
+                                                                            "line": 24,
+                                                                            "column": 34
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "position": {
+                                                                    "line": 24,
+                                                                    "column": 9
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "Text",
+                                                                "content": "\n    ",
+                                                                "position": {
+                                                                    "line": 26,
+                                                                    "column": 15
+                                                                }
+                                                            }
+                                                        ],
+                                                        "position": {
+                                                            "line": 23,
+                                                            "column": 5
+                                                        }
+                                                    }
+                                                ],
+                                                "otherwise": {
+                                                    "type": "AlternateConditionBranch",
+                                                    "content": [
+                                                        {
+                                                            "type": "Text",
+                                                            "content": "\n        ",
+                                                            "position": {
+                                                                "line": 27,
+                                                                "column": 16
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "Text",
+                                                            "content": "",
+                                                            "position": {
+                                                                "line": 28,
+                                                                "column": 9
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "Text",
+                                                            "content": "\n    ",
+                                                            "position": {
+                                                                "line": 28,
+                                                                "column": 24
+                                                            }
+                                                        }
+                                                    ],
+                                                    "position": {
+                                                        "line": 27,
+                                                        "column": 5
+                                                    }
+                                                },
+                                                "position": {
+                                                    "line": 23,
+                                                    "column": 5
+                                                }
+                                            },
+                                            {
+                                                "type": "Condition",
+                                                "name": "TMPL_UNLESS",
+                                                "conditions": [
+                                                    {
+                                                        "type": "ConditionBranch",
+                                                        "condition": {
+                                                            "type": "UnaryExpression",
+                                                            "operator": "!",
+                                                            "argument": {
+                                                                "type": "SingleAttribute",
+                                                                "name": "b_dont_skip_if_not_skipped_yet",
+                                                                "value": null,
+                                                                "position": {
+                                                                    "line": 23,
+                                                                    "column": 14
+                                                                }
+                                                            },
+                                                            "prefix": true
+                                                        },
+                                                        "content": [
+                                                            {
+                                                                "type": "Text",
+                                                                "content": "\n\n    ",
+                                                                "position": {
+                                                                    "line": 29,
+                                                                    "column": 15
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "HTMLTag",
+                                                                "name": "div",
+                                                                "attributes": [
+                                                                    {
+                                                                        "type": "PairAttribute",
+                                                                        "name": "class",
+                                                                        "value": "can-be-skipped-2",
+                                                                        "position": {
+                                                                            "line": 31,
+                                                                            "column": 10
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "content": [
+                                                                    {
+                                                                        "type": "Text",
+                                                                        "content": "\n        ",
+                                                                        "position": {
+                                                                            "line": 31,
+                                                                            "column": 35
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "type": "Tag",
+                                                                        "name": "TMPL_VAR",
+                                                                        "attributes": [
+                                                                            {
+                                                                                "type": "SingleAttribute",
+                                                                                "name": "b_value",
+                                                                                "value": null,
+                                                                                "position": {
+                                                                                    "line": 32,
+                                                                                    "column": 19
+                                                                                }
+                                                                            }
+                                                                        ],
+                                                                        "position": {
+                                                                            "line": 32,
+                                                                            "column": 9
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "type": "Text",
+                                                                        "content": "\n    ",
+                                                                        "position": {
+                                                                            "line": 32,
+                                                                            "column": 27
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "position": {
+                                                                    "line": 31,
+                                                                    "column": 5
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "Text",
+                                                                "content": "\n",
+                                                                "position": {
+                                                                    "line": 33,
+                                                                    "column": 11
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "position": {
+            "line": 1,
+            "column": 1
+        }
+    },
+    {
+        "type": "Text",
+        "content": "\n",
+        "position": {
+            "line": 34,
+            "column": 13
+        }
+    }
+]
