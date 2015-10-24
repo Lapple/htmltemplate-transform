@@ -76,7 +76,7 @@ module.exports = function(options) {
                             conditions: [
                                 {
                                     type: 'ConditionBranch',
-                                    condition: continuation.preconditions.reduce(
+                                    condition: continuation.preconditions.reduceRight(
                                         binary.bind(null, '&&')
                                     ),
                                     content: content.slice(continuation.index)

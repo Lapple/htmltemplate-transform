@@ -6,7 +6,7 @@ var transform = require('../..');
 var replaceContinue = require('../../plugins/replace-continue');
 
 describe('replace-continue transform', function() {
-    ['001', '002', '003', '004'].forEach(function(n) {
+    ['001', '002', '003', '004', '005'].forEach(function(n) {
         var filename = 'template.' + n + '.tmpl';
 
         it(filename, function(done) {
