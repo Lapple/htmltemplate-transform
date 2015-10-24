@@ -1,0 +1,185 @@
+[
+    {
+        "type": "Tag",
+        "name": "TMPL_LOOP",
+        "attributes": [
+            {
+                "type": "SingleAttribute",
+                "name": "b_item",
+                "value": null,
+                "position": {
+                    "line": 1,
+                    "column": 12
+                }
+            }
+        ],
+        "content": [
+            {
+                "type": "Text",
+                "content": "\n    ",
+                "position": {
+                    "line": 1,
+                    "column": 19
+                }
+            },
+            {
+                "type": "HTMLTag",
+                "name": "div",
+                "attributes": [
+                    {
+                        "type": "PairAttribute",
+                        "name": "class",
+                        "value": "output",
+                        "position": {
+                            "line": 2,
+                            "column": 10
+                        }
+                    }
+                ],
+                "content": [
+                    {
+                        "type": "Text",
+                        "content": "1",
+                        "position": {
+                            "line": 2,
+                            "column": 25
+                        }
+                    }
+                ],
+                "position": {
+                    "line": 2,
+                    "column": 5
+                }
+            },
+            {
+                "type": "Text",
+                "content": "\n    ",
+                "position": {
+                    "line": 2,
+                    "column": 32
+                }
+            },
+            {
+                "type": "InvalidTag",
+                "name": "TMPL_CONTINUE",
+                "attributes": [],
+                "position": {
+                    "line": 3,
+                    "column": 5
+                }
+            }
+        ],
+        "position": {
+            "line": 1,
+            "column": 1
+        }
+    },
+    {
+        "type": "Text",
+        "content": "\n\n",
+        "position": {
+            "line": 5,
+            "column": 13
+        }
+    },
+    {
+        "type": "Tag",
+        "name": "TMPL_FOR",
+        "attributes": [
+            {
+                "type": "SingleAttribute",
+                "name": "b_item",
+                "value": null,
+                "position": {
+                    "line": 7,
+                    "column": 11
+                }
+            },
+            {
+                "type": "PairAttribute",
+                "name": "IN",
+                "value": "b_items",
+                "content": {
+                    "type": "Identifier",
+                    "name": "b_items",
+                    "position": {
+                        "line": 7,
+                        "column": 21
+                    }
+                },
+                "position": {
+                    "line": 7,
+                    "column": 18
+                }
+            }
+        ],
+        "content": [
+            {
+                "type": "Text",
+                "content": "\n    ",
+                "position": {
+                    "line": 7,
+                    "column": 29
+                }
+            },
+            {
+                "type": "HTMLTag",
+                "name": "div",
+                "attributes": [
+                    {
+                        "type": "PairAttribute",
+                        "name": "class",
+                        "value": "output",
+                        "position": {
+                            "line": 8,
+                            "column": 10
+                        }
+                    }
+                ],
+                "content": [
+                    {
+                        "type": "Text",
+                        "content": "1",
+                        "position": {
+                            "line": 8,
+                            "column": 25
+                        }
+                    }
+                ],
+                "position": {
+                    "line": 8,
+                    "column": 5
+                }
+            },
+            {
+                "type": "Text",
+                "content": "\n    ",
+                "position": {
+                    "line": 8,
+                    "column": 32
+                }
+            },
+            {
+                "type": "InvalidTag",
+                "name": "TMPL_BREAK",
+                "attributes": [],
+                "position": {
+                    "line": 9,
+                    "column": 5
+                }
+            }
+        ],
+        "position": {
+            "line": 7,
+            "column": 1
+        }
+    },
+    {
+        "type": "Text",
+        "content": "\n",
+        "position": {
+            "line": 11,
+            "column": 12
+        }
+    }
+]
