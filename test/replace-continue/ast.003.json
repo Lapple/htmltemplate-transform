@@ -145,22 +145,6 @@
                                     "line": 10,
                                     "column": 24
                                 }
-                            },
-                            {
-                                "type": "Text",
-                                "content": "",
-                                "position": {
-                                    "line": 11,
-                                    "column": 9
-                                }
-                            },
-                            {
-                                "type": "Text",
-                                "content": "\n    ",
-                                "position": {
-                                    "line": 11,
-                                    "column": 24
-                                }
                             }
                         ],
                         "position": {
@@ -359,22 +343,6 @@
                                                 "position": {
                                                     "line": 22,
                                                     "column": 27
-                                                }
-                                            },
-                                            {
-                                                "type": "Text",
-                                                "content": "",
-                                                "position": {
-                                                    "line": 23,
-                                                    "column": 9
-                                                }
-                                            },
-                                            {
-                                                "type": "Text",
-                                                "content": "\n    ",
-                                                "position": {
-                                                    "line": 23,
-                                                    "column": 24
                                                 }
                                             }
                                         ],

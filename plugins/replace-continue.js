@@ -18,45 +18,67 @@ module.exports = function(options) {
         }
 
         if (node.name === 'TMPL_CONTINUE') {
+            var parents = this.parents;
+
             var closestLoopIndex = lastIndexOf(this.parents, function(parent) {
                 return isLoop(parent.node);
             });
 
-            var continuation = this.parents
+            var closestContentIndex = lastIndexOf(this.path, function(segment, index, path) {
+                return (
+                    (index >= 2 && path[index - 2] === 'otherwise') ||
+                    (index >= 3 && path[index - 3] === 'conditions')
+                );
+            });
+
+            var unreachableContentIndex = (
+                closestContentIndex === -1 ?
+                    -1 :
+                    Number(this.path[closestContentIndex])
+            );
+
+            var continuation = parents
                 .slice(closestLoopIndex)
                 .reduceRight(function(acc, parent) {
-                    var parentType = parent.node.type;
+                    var parentNode = parent.node;
+                    var parentType = parentNode.type;
                     var rootCondition, precondition;
 
-                    if (parentType === 'ConditionBranch') {
-                        rootCondition = parent.parent.parent;
-                        precondition = asExpression(parent.node.condition);
+                    if (parentType === 'ConditionBranch' || parentType === 'AlternateConditionBranch') {
+                        if (parentType === 'ConditionBranch') {
+                            rootCondition = parent.parent.parent;
+                            precondition = asExpression(parent.node.condition);
 
-                        for (var i = (index(parent) - 1); i >= 0; i -= 1) {
-                            precondition = binary(
-                                '&&',
-                                not(rootCondition.node.conditions[i].condition),
-                                precondition
+                            for (var i = (index(parent) - 1); i >= 0; i -= 1) {
+                                precondition = binary(
+                                    '&&',
+                                    not(rootCondition.node.conditions[i].condition),
+                                    precondition
+                                );
+                            }
+                        } else {
+                            rootCondition = parent.parent;
+                            precondition = not(
+                                rootCondition.node.conditions
+                                    .map(function(branch) {
+                                        return branch.condition;
+                                    })
+                                    .reduce(function(a, b) {
+                                        return binary('||', asExpression(a), asExpression(b));
+                                    })
                             );
                         }
 
                         acc.preconditions.push(precondition);
                         acc.index = index(rootCondition) + 1;
 
-                    } else if (parentType === 'AlternateConditionBranch') {
-                        rootCondition = parent.parent;
-                        precondition = not(
-                            rootCondition.node.conditions
-                                .map(function(branch) {
-                                    return branch.condition;
-                                })
-                                .reduce(function(a, b) {
-                                    return binary('||', asExpression(a), asExpression(b));
-                                })
-                        );
+                        if (unreachableContentIndex !== -1) {
+                            var contentParent = parents[closestContentIndex];
 
-                        acc.preconditions.push(precondition);
-                        acc.index = index(rootCondition) + 1;
+                            contentParent.update(
+                                contentParent.node.slice(0, unreachableContentIndex)
+                            );
+                        }
                     }
 
                     return acc;
@@ -66,13 +88,6 @@ module.exports = function(options) {
                 });
 
             continuations.push(continuation);
-
-            // FIXME: Not sure why `this.remove` deletes the next element here.
-            this.update({
-                type: 'Text',
-                content: '',
-                position: node.position
-            }, true);
         }
 
         if (isLoop(node)) {
@@ -152,7 +167,7 @@ function last(list) {
 
 function lastIndexOf(list, fn) {
     for (var i = (list.length - 1); i >= 0; i -= 1) {
-        if (fn(list[i])) {
+        if (fn(list[i], i, list)) {
             return i;
         }
     }

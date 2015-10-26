@@ -189,22 +189,6 @@
                                                     "line": 11,
                                                     "column": 60
                                                 }
-                                            },
-                                            {
-                                                "type": "Text",
-                                                "content": "",
-                                                "position": {
-                                                    "line": 12,
-                                                    "column": 13
-                                                }
-                                            },
-                                            {
-                                                "type": "Text",
-                                                "content": "\n        ",
-                                                "position": {
-                                                    "line": 12,
-                                                    "column": 28
-                                                }
                                             }
                                         ],
                                         "position": {

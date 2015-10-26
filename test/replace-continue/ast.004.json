@@ -182,22 +182,6 @@
                                     "line": 13,
                                     "column": 15
                                 }
-                            },
-                            {
-                                "type": "Text",
-                                "content": "",
-                                "position": {
-                                    "line": 14,
-                                    "column": 9
-                                }
-                            },
-                            {
-                                "type": "Text",
-                                "content": "\n    ",
-                                "position": {
-                                    "line": 14,
-                                    "column": 24
-                                }
                             }
                         ],
                         "position": {
@@ -215,22 +199,6 @@
                             "position": {
                                 "line": 15,
                                 "column": 16
-                            }
-                        },
-                        {
-                            "type": "Text",
-                            "content": "",
-                            "position": {
-                                "line": 16,
-                                "column": 9
-                            }
-                        },
-                        {
-                            "type": "Text",
-                            "content": "\n    ",
-                            "position": {
-                                "line": 16,
-                                "column": 24
                             }
                         }
                     ],
@@ -470,22 +438,6 @@
                                                             "position": {
                                                                 "line": 27,
                                                                 "column": 16
-                                                            }
-                                                        },
-                                                        {
-                                                            "type": "Text",
-                                                            "content": "",
-                                                            "position": {
-                                                                "line": 28,
-                                                                "column": 9
-                                                            }
-                                                        },
-                                                        {
-                                                            "type": "Text",
-                                                            "content": "\n    ",
-                                                            "position": {
-                                                                "line": 28,
-                                                                "column": 24
                                                             }
                                                         }
                                                     ],
