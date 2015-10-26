@@ -8,52 +8,62 @@ module.exports = function(options) {
 
     var continuations = [];
 
+    function isLoop(node) {
+        return loops.indexOf(node.name) !== -1;
+    }
+
     return function(node) {
         if (this.isLeaf) {
             return;
         }
 
         if (node.name === 'TMPL_CONTINUE') {
-            var continuation = this.parents.reduceRight(function(acc, parent) {
-                var parentType = parent.node.type;
-                var rootCondition, precondition;
+            var closestLoopIndex = lastIndexOf(this.parents, function(parent) {
+                return isLoop(parent.node);
+            });
 
-                if (parentType === 'ConditionBranch') {
-                    rootCondition = parent.parent.parent;
-                    precondition = asExpression(parent.node.condition);
+            var continuation = this.parents
+                .slice(closestLoopIndex)
+                .reduceRight(function(acc, parent) {
+                    var parentType = parent.node.type;
+                    var rootCondition, precondition;
 
-                    for (var i = (index(parent) - 1); i >= 0; i -= 1) {
-                        precondition = binary(
-                            '&&',
-                            not(rootCondition.node.conditions[i].condition),
-                            precondition
+                    if (parentType === 'ConditionBranch') {
+                        rootCondition = parent.parent.parent;
+                        precondition = asExpression(parent.node.condition);
+
+                        for (var i = (index(parent) - 1); i >= 0; i -= 1) {
+                            precondition = binary(
+                                '&&',
+                                not(rootCondition.node.conditions[i].condition),
+                                precondition
+                            );
+                        }
+
+                        acc.preconditions.push(precondition);
+                        acc.index = index(rootCondition) + 1;
+
+                    } else if (parentType === 'AlternateConditionBranch') {
+                        rootCondition = parent.parent;
+                        precondition = not(
+                            rootCondition.node.conditions
+                                .map(function(branch) {
+                                    return branch.condition;
+                                })
+                                .reduce(function(a, b) {
+                                    return binary('||', asExpression(a), asExpression(b));
+                                })
                         );
+
+                        acc.preconditions.push(precondition);
+                        acc.index = index(rootCondition) + 1;
                     }
 
-                    acc.preconditions.push(precondition);
-                    acc.index = index(rootCondition) + 1;
-
-                } else if (parentType === 'AlternateConditionBranch') {
-                    rootCondition = parent.parent;
-                    precondition = not(
-                        rootCondition.node.conditions
-                            .map(function(branch) {
-                                return branch.condition;
-                            })
-                            .reduce(function(a, b) {
-                                return binary('||', asExpression(a), asExpression(b));
-                            })
-                    );
-
-                    acc.preconditions.push(precondition);
-                    acc.index = index(rootCondition) + 1;
-                }
-
-                return acc;
-            }, {
-                index: -1,
-                preconditions: []
-            });
+                    return acc;
+                }, {
+                    index: -1,
+                    preconditions: []
+                });
 
             continuations.push(continuation);
 
@@ -65,7 +75,7 @@ module.exports = function(options) {
             }, true);
         }
 
-        if (loops.indexOf(node.name) !== -1) {
+        if (isLoop(node)) {
             this.after(function() {
                 var updated = continuations.reduceRight(function(content, continuation) {
                     return content
@@ -138,4 +148,14 @@ function index(nodeContext) {
 
 function last(list) {
     return list[list.length - 1];
+}
+
+function lastIndexOf(list, fn) {
+    for (var i = (list.length - 1); i >= 0; i -= 1) {
+        if (fn(list[i])) {
+            return i;
+        }
+    }
+
+    return -1;
 }

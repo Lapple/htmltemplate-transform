@@ -1,0 +1,13 @@
+<TMPL_IF b_condition>
+    <TMPL_LOOP b_item>
+        <div class="common">
+            This part is common for all items.
+        </div>
+        <TMPL_IF b_skip>
+            <TMPL_CONTINUE>
+        </TMPL_IF>
+        <div class="can-be-skipped">
+            <TMPL_VAR b_value>
+        </div>
+    </TMPL_LOOP>
+</TMPL_IF>
