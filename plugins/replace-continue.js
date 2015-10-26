@@ -24,7 +24,7 @@ module.exports = function(options) {
                 return isLoop(parent.node);
             });
 
-            var closestContentIndex = lastIndexOf(this.path, function(segment, index, path) {
+            var closestContentNodeIndex = lastIndexOf(this.path, function(segment, index, path) {
                 return (
                     (index >= 2 && path[index - 2] === 'otherwise') ||
                     (index >= 3 && path[index - 3] === 'conditions')
@@ -32,9 +32,9 @@ module.exports = function(options) {
             });
 
             var unreachableContentIndex = (
-                closestContentIndex === -1 ?
+                closestContentNodeIndex === -1 ?
                     -1 :
-                    Number(this.path[closestContentIndex])
+                    Number(this.path[closestContentNodeIndex])
             );
 
             var continuation = parents
@@ -45,6 +45,19 @@ module.exports = function(options) {
                     var rootCondition, precondition;
 
                     if (parentType === 'ConditionBranch' || parentType === 'AlternateConditionBranch') {
+                        // This code merges preconditions for successive TMPL_IF/
+                        // TMPL_ELSIF checks. For example:
+                        //
+                        //     <TMPL_IF [% $condition_a %]>
+                        //         ## ...
+                        //     <TMPL_ELSIF [% $condition_b %]>
+                        //         <TMPL_CONTINUE>
+                        //     </TMPL_IF>
+                        //
+                        // becomes:
+                        //
+                        //     <TMPL_IF [% !$condition_a && $condition_b %]>
+                        //
                         if (parentType === 'ConditionBranch') {
                             rootCondition = parent.parent.parent;
                             precondition = asExpression(parent.node.condition);
@@ -56,6 +69,22 @@ module.exports = function(options) {
                                     precondition
                                 );
                             }
+
+                        // This part does the same as above, just adjusted for
+                        // alternate condition, e.g.
+                        //
+                        //     <TMPL_IF [% $condition_a %]>
+                        //         ## ...
+                        //     <TMPL_ELSIF [% $condition_b %]>
+                        //         ## ...
+                        //     <TMPL_ELSE>
+                        //         <TMPL_CONTINUE>
+                        //     </TMPL_IF>
+                        //
+                        // becomes
+                        //
+                        //     <TMPL_UNLESS [% $condition_a || $condition_b %]>
+                        //
                         } else {
                             rootCondition = parent.parent;
                             precondition = not(
@@ -72,8 +101,10 @@ module.exports = function(options) {
                         acc.preconditions.push(precondition);
                         acc.index = index(rootCondition) + 1;
 
+                        // Any trailing non-conditionally unreachable code should
+                        // be removed.
                         if (unreachableContentIndex !== -1) {
-                            var contentParent = parents[closestContentIndex];
+                            var contentParent = parents[closestContentNodeIndex];
 
                             contentParent.update(
                                 contentParent.node.slice(0, unreachableContentIndex)
@@ -87,7 +118,15 @@ module.exports = function(options) {
                     preconditions: []
                 });
 
-            continuations.push(continuation);
+            if (continuation.preconditions.length === 0) {
+                // This part covers case when a wild unconditional `TMPL_CONTINUE`
+                // appears, see `template.008.tmpl` in corresponding test folder.
+                this.parent.update(
+                    this.parent.node.slice(0, index(this))
+                );
+            } else {
+                continuations.push(continuation);
+            }
         }
 
         if (isLoop(node)) {

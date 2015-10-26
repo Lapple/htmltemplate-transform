@@ -1,0 +1,9 @@
+<TMPL_FOR b_item IN=b_list>
+    <div class="common">
+        This part is common for all items.
+    </div>
+    <TMPL_CONTINUE>
+    <div class="will-be-skipped">
+        <TMPL_VAR b_value>
+    </div>
+</TMPL_FOR>
