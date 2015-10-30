@@ -31,3 +31,10 @@
 
 0 = <TMPL_IF [% $falsy && $unknown %]>1<TMPL_ELSE>0</TMPL_IF>
 ? = <TMPL_IF [% $truthy && $unknown %]>1<TMPL_ELSE>0</TMPL_IF>
+
+--- Optimization ---
+
+<TMPL_IF [% 1 %]>
+    <TMPL_VAR multiple>
+    <TMPL_VAR statements>
+</TMPL_IF>

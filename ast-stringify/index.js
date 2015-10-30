@@ -13,6 +13,10 @@ function handler() {
         return;
     }
 
+    if (this.notRoot && Array.isArray(this.node)) {
+        return this.update(transform(this.node), true);
+    }
+
     if (this.node.type === 'Expression') {
         return this.update(perlExpression(this.node), true);
     }

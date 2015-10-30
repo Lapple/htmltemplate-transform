@@ -83,10 +83,10 @@ module.exports = function(knownIdentifiers) {
 
             if (result !== NOT_SURE) {
                 if (Boolean(result)) {
-                    this.update(first.content[0], true);
+                    this.update(first.content, true);
                 } else {
                     if (node.otherwise) {
-                        this.update(node.otherwise.content[0], true);
+                        this.update(node.otherwise.content, true);
                     } else {
                         this.update(null, true);
                     }
