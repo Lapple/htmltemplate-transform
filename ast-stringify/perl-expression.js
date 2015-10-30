@@ -38,6 +38,16 @@ function handler() {
     }
 
     if (this.node.type === 'Literal') {
+        if (this.node.regex) {
+            var regex = this.node.regex;
+
+            return this.update(
+                t(
+                    [regex.operators, regex.pattern, regex.flags].join('/')
+                ),
+            true);
+        }
+
         var isString = typeof this.node.value === 'string';
 
         if (isString) {

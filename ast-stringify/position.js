@@ -18,7 +18,7 @@ module.exports = {
     },
 
     track: function(s) {
-        if (s.length > 0) {
+        if (s && s.length > 0) {
             for (var i = 0; i < s.length; i++) {
                 if (s[i] === os.EOL) {
                     position.column = 1;

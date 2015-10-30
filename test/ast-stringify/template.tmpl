@@ -40,7 +40,10 @@
                     <button onclick="counterClick(<TMPL_VAR id>)">
                         <span>Click me</span>
                     </button>
-                    <span><TMPL_VAR counter></span>
+
+                    <TMPL_IF [% $b_lang =~ m/ja|zh|ko|hu|ar/ %]>
+                        <span><TMPL_VAR counter></span>
+                    </TMPL_IF>
                 </div>
             </li>
         </TMPL_LOOP>
