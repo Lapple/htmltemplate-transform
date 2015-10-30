@@ -25,11 +25,15 @@ describe('optimize-conditions', function() {
         transform(
             path.join(__dirname, 'template.tmpl'),
             null,
-            { ignoreHTMLTags: true }
+            {
+                ignoreHTMLTags: true,
+                collectStringEntities: true
+            }
         )
         .using(
             optimizeConditions({
-                '$falsy': false
+                '$falsy': false,
+                '$truthy': true
             })
         )
         .toAST(function(err, ast) {

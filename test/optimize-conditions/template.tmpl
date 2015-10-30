@@ -1,11 +1,33 @@
-<div class="app">
-    <TMPL_IF [% $falsy %]>yes<TMPL_ELSE>no</TMPL_IF>
+--- BASIC ---
 
-    <TMPL_IF [% $other %]>yes<TMPL_ELSE>no</TMPL_IF>
+1 = <TMPL_IF [% 1 %]>1<TMPL_ELSE>0</TMPL_IF>
+0 = <TMPL_IF [% 0 %]>1<TMPL_ELSE>0</TMPL_IF>
 
-    <TMPL_IF [% $something eq 'something' && $falsy %]>yes<TMPL_ELSE>no</TMPL_IF>
+0 = <TMPL_IF [% $falsy %]>1<TMPL_ELSE>0</TMPL_IF>
+1 = <TMPL_IF [% $truthy %]>1<TMPL_ELSE>0</TMPL_IF>
 
-    <TMPL_IF [% $falsy && $other %]>yes<TMPL_ELSE>no</TMPL_IF>
+--- OR ---
 
-    <TMPL_IF [% $falsy || $something %]>yes<TMPL_ELSE>no</TMPL_IF>
-</div>
+1 = <TMPL_IF [% 1 || 1 %]>1<TMPL_ELSE>0</TMPL_IF>
+1 = <TMPL_IF [% 1 || 0 %]>1<TMPL_ELSE>0</TMPL_IF>
+1 = <TMPL_IF [% 0 || 1 %]>1<TMPL_ELSE>0</TMPL_IF>
+0 = <TMPL_IF [% 0 || 0 %]>1<TMPL_ELSE>0</TMPL_IF>
+
+? = <TMPL_IF [% 0 || $unknown %]>1<TMPL_ELSE>0</TMPL_IF>
+1 = <TMPL_IF [% 1 || $unknown %]>1<TMPL_ELSE>0</TMPL_IF>
+
+? = <TMPL_IF [% $falsy || $unknown %]>1<TMPL_ELSE>0</TMPL_IF>
+1 = <TMPL_IF [% $truthy || $unknown %]>1<TMPL_ELSE>0</TMPL_IF>
+
+--- AND ---
+
+1 = <TMPL_IF [% 1 && 1 %]>1<TMPL_ELSE>0</TMPL_IF>
+0 = <TMPL_IF [% 1 && 0 %]>1<TMPL_ELSE>0</TMPL_IF>
+0 = <TMPL_IF [% 0 && 1 %]>1<TMPL_ELSE>0</TMPL_IF>
+0 = <TMPL_IF [% 0 && 0 %]>1<TMPL_ELSE>0</TMPL_IF>
+
+0 = <TMPL_IF [% 0 && $unknown %]>1<TMPL_ELSE>0</TMPL_IF>
+? = <TMPL_IF [% 1 && $unknown %]>1<TMPL_ELSE>0</TMPL_IF>
+
+0 = <TMPL_IF [% $falsy && $unknown %]>1<TMPL_ELSE>0</TMPL_IF>
+? = <TMPL_IF [% $truthy && $unknown %]>1<TMPL_ELSE>0</TMPL_IF>

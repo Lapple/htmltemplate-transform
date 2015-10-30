@@ -12,7 +12,10 @@ describe('astStringify', function() {
             path.join(__dirname, 'template.tmpl')
         ).toString();
 
-        var AST = parser.parse(templateString, { ignoreHTMLTags: true });
+        var AST = parser.parse(templateString, {
+            ignoreHTMLTags: true,
+            collectStringEntities: true
+        });
 
         assert.equal(templateString, astStringify(AST));
     });

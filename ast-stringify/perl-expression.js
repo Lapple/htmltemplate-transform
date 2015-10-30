@@ -1,5 +1,9 @@
 var traverse = require('traverse');
 
+var position = require('./position');
+
+var t = position.track;
+
 var operatorStack = [];
 
 var order = {
@@ -9,19 +13,38 @@ var order = {
 
 function handler() {
     if (this.node.type === 'Identifier') {
-        return this.update(this.node.name, true);
+        return this.update(t(this.node.name), true);
+    }
+
+    if (this.node.type === 'CallExpression') {
+        var out = t(this.node.callee.name);
+
+        out +=
+            t('(') +
+                this.node.arguments.map(transform).join(', ') +
+            t(')');
+
+        return this.update(out, true);
     }
 
     if (this.node.type === 'UnaryExpression') {
         var operator = this.node.operator;
 
         return this.update(
-            operator + transform(this.node.argument),
+            operator +
+            t(this.node.stringEntities.whitespace) +
+            transform(this.node.argument),
         true);
     }
 
     if (this.node.type === 'Literal') {
-        return this.update(this.node.value, true);
+        var isString = typeof this.node.value === 'string';
+
+        if (isString) {
+            return this.update(t('"') + t(this.node.value) + t('"'), true);
+        }
+
+        return this.update(t(this.node.value), true);
     }
 
     if (this.node.type === 'BinaryExpression') {
@@ -34,16 +57,14 @@ function handler() {
 
         operatorStack.push(operator);
 
-        var left = transform(this.node.left);
-        var right = transform(this.node.right);
+        var out =
+            transform(this.node.left) +
+            t(this.node.stringEntities.before) +
+            t(operator) +
+            t(this.node.stringEntities.after) +
+            transform(this.node.right);
 
         operatorStack.pop();
-
-        if (operator === 'eq' || operator === 'neq') {
-            right = "'" + right + "'";
-        }
-
-        var out = [left, right].join(' ' + operator + ' ');
 
         if (shouldWrap) {
             out = '(' + out + ')';
@@ -64,5 +85,5 @@ function transform(ast) {
 }
 
 module.exports = function(node) {
-    return '[% ' + transform(node) + ' %]';
+    return t(node.stringEntities.before) + transform(node.content) + t(node.stringEntities.after);
 }

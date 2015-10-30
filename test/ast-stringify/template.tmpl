@@ -8,7 +8,7 @@
 
     <ul class="list">
         <TMPL_LOOP
-        [% $state->{people} %]>
+        [% $state->{"people"} %]>
             <li class="item <TMPL_IF active>item--active</TMPL_IF>" onclick="itemClick(<TMPL_VAR id>)">
                 <TMPL_VAR name> <a href="#/items/<TMPL_VAR [% ($a or $b) and $c %]>">some link</a>
 
@@ -25,7 +25,7 @@
 
                 ## comment
 
-                <div><TMPL_VAR [% $something && $city_copy %]><TMPL_VAR city></div>
+                <div><TMPL_VAR [%   $something  &&      $city_copy %]><TMPL_VAR city></div>
 
                 <TMPL_IF active>active<TMPL_ELSE>not active</TMPL_IF>
 
@@ -33,8 +33,8 @@
 
 
                 lolwat
-
                 </TMPL_UNLESS>
+# wat
 
                 <div>
                     <button onclick="counterClick(<TMPL_VAR id>)">

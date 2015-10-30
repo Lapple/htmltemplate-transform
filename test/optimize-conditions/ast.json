@@ -1,206 +1,618 @@
-  [
-    {
-        "type": "Text",
-        "content": "<div class=\"app\">\n    ",
-        "position": {
-            "line": 1,
-            "column": 1
-        }
-    },
-    {
-        "type": "Text",
-        "content": "no",
-        "position": {
-            "line": 2,
-            "column": 41
-        }
-    },
-    {
-        "type": "Text",
-        "content": "\n\n    ",
-        "position": {
-            "line": 2,
-            "column": 53
-        }
-    },
-    {
-        "type": "Condition",
-        "name": "TMPL_IF",
-        "conditions": [
-            {
-                "type": "ConditionBranch",
-                "condition": {
-                    "type": "Expression",
-                    "content": {
-                        "type": "Identifier",
-                        "name": "$other",
-                        "position": {
-                            "line": 4,
-                            "column": 17
-                        }
-                    },
-                    "value": "$other",
-                    "position": {
-                        "line": 4,
-                        "column": 14
-                    }
-                },
-                "content": [
-                    {
-                        "type": "Text",
-                        "content": "yes",
-                        "position": {
-                            "line": 4,
-                            "column": 27
-                        }
-                    }
-                ],
-                "position": {
-                    "line": 4,
-                    "column": 5
-                }
-            }
-        ],
-        "otherwise": {
-            "type": "AlternateConditionBranch",
-            "content": [
-                {
-                    "type": "Text",
-                    "content": "no",
-                    "position": {
-                        "line": 4,
-                        "column": 41
-                    }
-                }
-            ],
-            "position": {
-                "line": 4,
-                "column": 30
-            }
-        },
-        "position": {
-            "line": 4,
-            "column": 5
-        }
-    },
-    {
-        "type": "Text",
-        "content": "\n\n    ",
-        "position": {
-            "line": 4,
-            "column": 53
-        }
-    },
-    {
-        "type": "Text",
-        "content": "no",
-        "position": {
-            "line": 6,
-            "column": 70
-        }
-    },
-    {
-        "type": "Text",
-        "content": "\n\n    ",
-        "position": {
-            "line": 6,
-            "column": 82
-        }
-    },
-    {
-        "type": "Text",
-        "content": "no",
-        "position": {
-            "line": 8,
-            "column": 51
-        }
-    },
-    {
-        "type": "Text",
-        "content": "\n\n    ",
-        "position": {
-            "line": 8,
-            "column": 63
-        }
-    },
-    {
-        "type": "Condition",
-        "name": "TMPL_IF",
-        "conditions": [
-            {
-                "type": "ConditionBranch",
-                "condition": {
-                    "type": "Expression",
-                    "content": {
-                        "type": "BinaryExpression",
-                        "operator": "||",
-                        "left": {
-                            "type": "Identifier",
-                            "name": "$falsy",
-                            "position": {
-                                "line": 10,
-                                "column": 17
-                            }
-                        },
-                        "right": {
-                            "type": "Identifier",
-                            "name": "$something",
-                            "position": {
-                                "line": 10,
-                                "column": 27
-                            }
-                        }
-                    },
-                    "value": "$falsy || $something",
-                    "position": {
-                        "line": 10,
-                        "column": 14
-                    }
-                },
-                "content": [
-                    {
-                        "type": "Text",
-                        "content": "yes",
-                        "position": {
-                            "line": 10,
-                            "column": 41
-                        }
-                    }
-                ],
-                "position": {
-                    "line": 10,
-                    "column": 5
-                }
-            }
-        ],
-        "otherwise": {
-            "type": "AlternateConditionBranch",
-            "content": [
-                {
-                    "type": "Text",
-                    "content": "no",
-                    "position": {
-                        "line": 10,
-                        "column": 55
-                    }
-                }
-            ],
-            "position": {
-                "line": 10,
-                "column": 44
-            }
-        },
-        "position": {
-            "line": 10,
-            "column": 5
-        }
-    },
-    {
-        "type": "Text",
-        "content": "\n</div>\n",
-        "position": {
-            "line": 10,
-            "column": 67
-        }
+[
+  {
+    "type": "Text",
+    "content": "--- BASIC ---\n\n1 = ",
+    "position": {
+      "line": 1,
+      "column": 1
     }
+  },
+  {
+    "type": "Text",
+    "content": "1",
+    "position": {
+      "line": 3,
+      "column": 22
+    }
+  },
+  {
+    "type": "Text",
+    "content": "\n0 = ",
+    "position": {
+      "line": 3,
+      "column": 45
+    }
+  },
+  {
+    "type": "Text",
+    "content": "0",
+    "position": {
+      "line": 4,
+      "column": 34
+    }
+  },
+  {
+    "type": "Text",
+    "content": "\n\n0 = ",
+    "position": {
+      "line": 4,
+      "column": 45
+    }
+  },
+  {
+    "type": "Text",
+    "content": "0",
+    "position": {
+      "line": 6,
+      "column": 39
+    }
+  },
+  {
+    "type": "Text",
+    "content": "\n1 = ",
+    "position": {
+      "line": 6,
+      "column": 50
+    }
+  },
+  {
+    "type": "Text",
+    "content": "1",
+    "position": {
+      "line": 7,
+      "column": 28
+    }
+  },
+  {
+    "type": "Text",
+    "content": "\n\n--- OR ---\n\n1 = ",
+    "position": {
+      "line": 7,
+      "column": 51
+    }
+  },
+  {
+    "type": "Text",
+    "content": "1",
+    "position": {
+      "line": 11,
+      "column": 27
+    }
+  },
+  {
+    "type": "Text",
+    "content": "\n1 = ",
+    "position": {
+      "line": 11,
+      "column": 50
+    }
+  },
+  {
+    "type": "Text",
+    "content": "1",
+    "position": {
+      "line": 12,
+      "column": 27
+    }
+  },
+  {
+    "type": "Text",
+    "content": "\n1 = ",
+    "position": {
+      "line": 12,
+      "column": 50
+    }
+  },
+  {
+    "type": "Text",
+    "content": "1",
+    "position": {
+      "line": 13,
+      "column": 27
+    }
+  },
+  {
+    "type": "Text",
+    "content": "\n0 = ",
+    "position": {
+      "line": 13,
+      "column": 50
+    }
+  },
+  {
+    "type": "Text",
+    "content": "0",
+    "position": {
+      "line": 14,
+      "column": 39
+    }
+  },
+  {
+    "type": "Text",
+    "content": "\n\n? = ",
+    "position": {
+      "line": 14,
+      "column": 50
+    }
+  },
+  {
+    "type": "Condition",
+    "name": "TMPL_IF",
+    "conditions": [
+      {
+        "type": "ConditionBranch",
+        "condition": {
+          "type": "Expression",
+          "content": {
+            "type": "BinaryExpression",
+            "operator": "||",
+            "left": {
+              "type": "Literal",
+              "value": 0,
+              "position": {
+                "line": 16,
+                "column": 17
+              }
+            },
+            "right": {
+              "type": "Identifier",
+              "name": "$unknown",
+              "position": {
+                "line": 16,
+                "column": 22
+              }
+            },
+            "stringEntities": {
+              "before": " ",
+              "after": " "
+            }
+          },
+          "value": "0 || $unknown",
+          "stringEntities": {
+            "before": "[% ",
+            "after": " %]"
+          },
+          "position": {
+            "line": 16,
+            "column": 14
+          }
+        },
+        "content": [
+          {
+            "type": "Text",
+            "content": "1",
+            "position": {
+              "line": 16,
+              "column": 34
+            }
+          }
+        ],
+        "position": {
+          "line": 16,
+          "column": 5
+        }
+      }
+    ],
+    "otherwise": {
+      "type": "AlternateConditionBranch",
+      "content": [
+        {
+          "type": "Text",
+          "content": "0",
+          "position": {
+            "line": 16,
+            "column": 46
+          }
+        }
+      ],
+      "position": {
+        "line": 16,
+        "column": 35
+      }
+    },
+    "position": {
+      "line": 16,
+      "column": 5
+    }
+  },
+  {
+    "type": "Text",
+    "content": "\n1 = ",
+    "position": {
+      "line": 16,
+      "column": 57
+    }
+  },
+  {
+    "type": "Text",
+    "content": "1",
+    "position": {
+      "line": 17,
+      "column": 34
+    }
+  },
+  {
+    "type": "Text",
+    "content": "\n\n? = ",
+    "position": {
+      "line": 17,
+      "column": 57
+    }
+  },
+  {
+    "type": "Condition",
+    "name": "TMPL_IF",
+    "conditions": [
+      {
+        "type": "ConditionBranch",
+        "condition": {
+          "type": "Expression",
+          "content": {
+            "type": "BinaryExpression",
+            "operator": "||",
+            "left": {
+              "type": "Identifier",
+              "name": "$falsy",
+              "position": {
+                "line": 19,
+                "column": 17
+              }
+            },
+            "right": {
+              "type": "Identifier",
+              "name": "$unknown",
+              "position": {
+                "line": 19,
+                "column": 27
+              }
+            },
+            "stringEntities": {
+              "before": " ",
+              "after": " "
+            }
+          },
+          "value": "$falsy || $unknown",
+          "stringEntities": {
+            "before": "[% ",
+            "after": " %]"
+          },
+          "position": {
+            "line": 19,
+            "column": 14
+          }
+        },
+        "content": [
+          {
+            "type": "Text",
+            "content": "1",
+            "position": {
+              "line": 19,
+              "column": 39
+            }
+          }
+        ],
+        "position": {
+          "line": 19,
+          "column": 5
+        }
+      }
+    ],
+    "otherwise": {
+      "type": "AlternateConditionBranch",
+      "content": [
+        {
+          "type": "Text",
+          "content": "0",
+          "position": {
+            "line": 19,
+            "column": 51
+          }
+        }
+      ],
+      "position": {
+        "line": 19,
+        "column": 40
+      }
+    },
+    "position": {
+      "line": 19,
+      "column": 5
+    }
+  },
+  {
+    "type": "Text",
+    "content": "\n1 = ",
+    "position": {
+      "line": 19,
+      "column": 62
+    }
+  },
+  {
+    "type": "Text",
+    "content": "1",
+    "position": {
+      "line": 20,
+      "column": 40
+    }
+  },
+  {
+    "type": "Text",
+    "content": "\n\n--- AND ---\n\n1 = ",
+    "position": {
+      "line": 20,
+      "column": 63
+    }
+  },
+  {
+    "type": "Text",
+    "content": "1",
+    "position": {
+      "line": 24,
+      "column": 27
+    }
+  },
+  {
+    "type": "Text",
+    "content": "\n0 = ",
+    "position": {
+      "line": 24,
+      "column": 50
+    }
+  },
+  {
+    "type": "Text",
+    "content": "0",
+    "position": {
+      "line": 25,
+      "column": 39
+    }
+  },
+  {
+    "type": "Text",
+    "content": "\n0 = ",
+    "position": {
+      "line": 25,
+      "column": 50
+    }
+  },
+  {
+    "type": "Text",
+    "content": "0",
+    "position": {
+      "line": 26,
+      "column": 39
+    }
+  },
+  {
+    "type": "Text",
+    "content": "\n0 = ",
+    "position": {
+      "line": 26,
+      "column": 50
+    }
+  },
+  {
+    "type": "Text",
+    "content": "0",
+    "position": {
+      "line": 27,
+      "column": 39
+    }
+  },
+  {
+    "type": "Text",
+    "content": "\n\n0 = ",
+    "position": {
+      "line": 27,
+      "column": 50
+    }
+  },
+  {
+    "type": "Text",
+    "content": "0",
+    "position": {
+      "line": 29,
+      "column": 46
+    }
+  },
+  {
+    "type": "Text",
+    "content": "\n? = ",
+    "position": {
+      "line": 29,
+      "column": 57
+    }
+  },
+  {
+    "type": "Condition",
+    "name": "TMPL_IF",
+    "conditions": [
+      {
+        "type": "ConditionBranch",
+        "condition": {
+          "type": "Expression",
+          "content": {
+            "type": "BinaryExpression",
+            "operator": "&&",
+            "left": {
+              "type": "Literal",
+              "value": 1,
+              "position": {
+                "line": 30,
+                "column": 17
+              }
+            },
+            "right": {
+              "type": "Identifier",
+              "name": "$unknown",
+              "position": {
+                "line": 30,
+                "column": 22
+              }
+            },
+            "stringEntities": {
+              "before": " ",
+              "after": " "
+            }
+          },
+          "value": "1 && $unknown",
+          "stringEntities": {
+            "before": "[% ",
+            "after": " %]"
+          },
+          "position": {
+            "line": 30,
+            "column": 14
+          }
+        },
+        "content": [
+          {
+            "type": "Text",
+            "content": "1",
+            "position": {
+              "line": 30,
+              "column": 34
+            }
+          }
+        ],
+        "position": {
+          "line": 30,
+          "column": 5
+        }
+      }
+    ],
+    "otherwise": {
+      "type": "AlternateConditionBranch",
+      "content": [
+        {
+          "type": "Text",
+          "content": "0",
+          "position": {
+            "line": 30,
+            "column": 46
+          }
+        }
+      ],
+      "position": {
+        "line": 30,
+        "column": 35
+      }
+    },
+    "position": {
+      "line": 30,
+      "column": 5
+    }
+  },
+  {
+    "type": "Text",
+    "content": "\n\n0 = ",
+    "position": {
+      "line": 30,
+      "column": 57
+    }
+  },
+  {
+    "type": "Text",
+    "content": "0",
+    "position": {
+      "line": 32,
+      "column": 51
+    }
+  },
+  {
+    "type": "Text",
+    "content": "\n? = ",
+    "position": {
+      "line": 32,
+      "column": 62
+    }
+  },
+  {
+    "type": "Condition",
+    "name": "TMPL_IF",
+    "conditions": [
+      {
+        "type": "ConditionBranch",
+        "condition": {
+          "type": "Expression",
+          "content": {
+            "type": "BinaryExpression",
+            "operator": "&&",
+            "left": {
+              "type": "Identifier",
+              "name": "$truthy",
+              "position": {
+                "line": 33,
+                "column": 17
+              }
+            },
+            "right": {
+              "type": "Identifier",
+              "name": "$unknown",
+              "position": {
+                "line": 33,
+                "column": 28
+              }
+            },
+            "stringEntities": {
+              "before": " ",
+              "after": " "
+            }
+          },
+          "value": "$truthy && $unknown",
+          "stringEntities": {
+            "before": "[% ",
+            "after": " %]"
+          },
+          "position": {
+            "line": 33,
+            "column": 14
+          }
+        },
+        "content": [
+          {
+            "type": "Text",
+            "content": "1",
+            "position": {
+              "line": 33,
+              "column": 40
+            }
+          }
+        ],
+        "position": {
+          "line": 33,
+          "column": 5
+        }
+      }
+    ],
+    "otherwise": {
+      "type": "AlternateConditionBranch",
+      "content": [
+        {
+          "type": "Text",
+          "content": "0",
+          "position": {
+            "line": 33,
+            "column": 52
+          }
+        }
+      ],
+      "position": {
+        "line": 33,
+        "column": 41
+      }
+    },
+    "position": {
+      "line": 33,
+      "column": 5
+    }
+  },
+  {
+    "type": "Text",
+    "content": "\n",
+    "position": {
+      "line": 33,
+      "column": 63
+    }
+  }
 ]

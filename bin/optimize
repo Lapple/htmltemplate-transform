@@ -12,6 +12,11 @@ var transform = require('../');
 
 var optimizeConditions = require('../plugins/optimize-conditions');
 
+var PARSER_OPTIONS = {
+    ignoreHTMLTags: true,
+    collectStringEntities: true
+};
+
 var argv = require('yargs')
     .usage('Usage: $0 [options]')
     .options({
@@ -23,18 +28,23 @@ var argv = require('yargs')
 
         'test': {
             describe: 'display the result of the test'
+        },
+
+        'ast': {
+            describe: 'display ast'
         }
     })
     .argv;
 
 var templateString = fs.readFileSync(argv.path).toString();
 
-var AST = parser.parse(templateString, { ignoreHTMLTags: true });
+var AST = parser.parse(templateString, PARSER_OPTIONS);
 
-transform(argv.path, null, { ignoreHTMLTags: true })
+transform(argv.path, null, PARSER_OPTIONS)
 .using(
     optimizeConditions({
-        '$falsy': false
+        '$falsy': false,
+        '$truthy': true
     })
 )
 .toAST(function(err, optimizedAST) {
@@ -56,5 +66,9 @@ transform(argv.path, null, { ignoreHTMLTags: true })
         return;
     }
 
+    if (argv.ast) {
+        console.log(JSON.stringify(optimizedAST, null, 2));
+        return;
+    }
     console.log(astStringify(optimizedAST));
 });
