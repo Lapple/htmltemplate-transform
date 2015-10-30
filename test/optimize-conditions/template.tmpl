@@ -1,7 +1,7 @@
 --- BASIC ---
 
-1 = <TMPL_IF [% 1 %]>1<TMPL_ELSE>0</TMPL_IF>
 0 = <TMPL_IF [% 0 %]>1<TMPL_ELSE>0</TMPL_IF>
+1 = <TMPL_IF [% 1 %]>1<TMPL_ELSE>0</TMPL_IF>
 
 0 = <TMPL_IF [% $falsy %]>1<TMPL_ELSE>0</TMPL_IF>
 1 = <TMPL_IF [% $truthy %]>1<TMPL_ELSE>0</TMPL_IF>
@@ -38,3 +38,21 @@
     <TMPL_VAR multiple>
     <TMPL_VAR statements>
 </TMPL_IF>
+
+--- TMPL_SETVAR ---
+
+<TMPL_SETVAR setvar_falsy>0</TMPL_SETVAR>
+<TMPL_SETVAR setvar_truthy>1</TMPL_SETVAR>
+
+0 = <TMPL_IF [% $setvar_falsy %]>1<TMPL_ELSE>0</TMPL_IF>
+1 = <TMPL_IF [% $setvar_truthy %]>1<TMPL_ELSE>0</TMPL_IF>
+
+--- TMPL_ASSIGN ---
+
+<TMPL_ASSIGN assign_falsy [% 0 %]>
+<TMPL_ASSIGN assign_truthy [% 1 %]>
+<TMPL_ASSIGN assign_unknown [% $unknown %]>
+
+0 = <TMPL_IF [% $assign_falsy %]>1<TMPL_ELSE>0</TMPL_IF>
+1 = <TMPL_IF [% $assign_truthy %]>1<TMPL_ELSE>0</TMPL_IF>
+? = <TMPL_IF [% $assign_unknown %]>1<TMPL_ELSE>0</TMPL_IF>

@@ -1,7 +1,7 @@
 [
   {
     "type": "Text",
-    "content": "--- BASIC ---\n\n1 = ",
+    "content": "--- BASIC ---\n\n0 = ",
     "position": {
       "line": 1,
       "column": 1
@@ -10,16 +10,16 @@
   [
     {
       "type": "Text",
-      "content": "1",
+      "content": "0",
       "position": {
         "line": 3,
-        "column": 22
+        "column": 34
       }
     }
   ],
   {
     "type": "Text",
-    "content": "\n0 = ",
+    "content": "\n1 = ",
     "position": {
       "line": 3,
       "column": 45
@@ -28,10 +28,10 @@
   [
     {
       "type": "Text",
-      "content": "0",
+      "content": "1",
       "position": {
         "line": 4,
-        "column": 34
+        "column": 22
       }
     }
   ],
@@ -713,10 +713,369 @@
   ],
   {
     "type": "Text",
-    "content": "\n",
+    "content": "\n\n--- TMPL_SETVAR ---\n\n",
     "position": {
       "line": 40,
       "column": 11
+    }
+  },
+  {
+    "type": "Tag",
+    "name": "TMPL_SETVAR",
+    "attributes": [
+      {
+        "type": "SingleAttribute",
+        "name": "setvar_falsy",
+        "value": null,
+        "position": {
+          "line": 44,
+          "column": 14
+        }
+      }
+    ],
+    "content": [
+      {
+        "type": "Text",
+        "content": "0",
+        "position": {
+          "line": 44,
+          "column": 27
+        }
+      }
+    ],
+    "position": {
+      "line": 44,
+      "column": 1
+    }
+  },
+  {
+    "type": "Text",
+    "content": "\n",
+    "position": {
+      "line": 44,
+      "column": 42
+    }
+  },
+  {
+    "type": "Tag",
+    "name": "TMPL_SETVAR",
+    "attributes": [
+      {
+        "type": "SingleAttribute",
+        "name": "setvar_truthy",
+        "value": null,
+        "position": {
+          "line": 45,
+          "column": 14
+        }
+      }
+    ],
+    "content": [
+      {
+        "type": "Text",
+        "content": "1",
+        "position": {
+          "line": 45,
+          "column": 28
+        }
+      }
+    ],
+    "position": {
+      "line": 45,
+      "column": 1
+    }
+  },
+  {
+    "type": "Text",
+    "content": "\n\n0 = ",
+    "position": {
+      "line": 45,
+      "column": 43
+    }
+  },
+  [
+    {
+      "type": "Text",
+      "content": "0",
+      "position": {
+        "line": 47,
+        "column": 46
+      }
+    }
+  ],
+  {
+    "type": "Text",
+    "content": "\n1 = ",
+    "position": {
+      "line": 47,
+      "column": 57
+    }
+  },
+  [
+    {
+      "type": "Text",
+      "content": "1",
+      "position": {
+        "line": 48,
+        "column": 35
+      }
+    }
+  ],
+  {
+    "type": "Text",
+    "content": "\n\n--- TMPL_ASSIGN ---\n\n",
+    "position": {
+      "line": 48,
+      "column": 58
+    }
+  },
+  {
+    "type": "InvalidTag",
+    "name": "TMPL_ASSIGN",
+    "attributes": [
+      {
+        "type": "SingleAttribute",
+        "name": "assign_falsy",
+        "value": null,
+        "position": {
+          "line": 52,
+          "column": 14
+        }
+      },
+      {
+        "type": "Expression",
+        "content": {
+          "type": "Literal",
+          "value": 0,
+          "position": {
+            "line": 52,
+            "column": 30
+          }
+        },
+        "value": "0",
+        "stringEntities": {
+          "before": "[% ",
+          "after": " %]"
+        },
+        "position": {
+          "line": 52,
+          "column": 27
+        }
+      }
+    ],
+    "position": {
+      "line": 52,
+      "column": 1
+    }
+  },
+  {
+    "type": "Text",
+    "content": "\n",
+    "position": {
+      "line": 52,
+      "column": 35
+    }
+  },
+  {
+    "type": "InvalidTag",
+    "name": "TMPL_ASSIGN",
+    "attributes": [
+      {
+        "type": "SingleAttribute",
+        "name": "assign_truthy",
+        "value": null,
+        "position": {
+          "line": 53,
+          "column": 14
+        }
+      },
+      {
+        "type": "Expression",
+        "content": {
+          "type": "Literal",
+          "value": 1,
+          "position": {
+            "line": 53,
+            "column": 31
+          }
+        },
+        "value": "1",
+        "stringEntities": {
+          "before": "[% ",
+          "after": " %]"
+        },
+        "position": {
+          "line": 53,
+          "column": 28
+        }
+      }
+    ],
+    "position": {
+      "line": 53,
+      "column": 1
+    }
+  },
+  {
+    "type": "Text",
+    "content": "\n",
+    "position": {
+      "line": 53,
+      "column": 36
+    }
+  },
+  {
+    "type": "InvalidTag",
+    "name": "TMPL_ASSIGN",
+    "attributes": [
+      {
+        "type": "SingleAttribute",
+        "name": "assign_unknown",
+        "value": null,
+        "position": {
+          "line": 54,
+          "column": 14
+        }
+      },
+      {
+        "type": "Expression",
+        "content": {
+          "type": "Identifier",
+          "name": "$unknown",
+          "position": {
+            "line": 54,
+            "column": 32
+          }
+        },
+        "value": "$unknown",
+        "stringEntities": {
+          "before": "[% ",
+          "after": " %]"
+        },
+        "position": {
+          "line": 54,
+          "column": 29
+        }
+      }
+    ],
+    "position": {
+      "line": 54,
+      "column": 1
+    }
+  },
+  {
+    "type": "Text",
+    "content": "\n\n0 = ",
+    "position": {
+      "line": 54,
+      "column": 44
+    }
+  },
+  [
+    {
+      "type": "Text",
+      "content": "0",
+      "position": {
+        "line": 56,
+        "column": 46
+      }
+    }
+  ],
+  {
+    "type": "Text",
+    "content": "\n1 = ",
+    "position": {
+      "line": 56,
+      "column": 57
+    }
+  },
+  [
+    {
+      "type": "Text",
+      "content": "1",
+      "position": {
+        "line": 57,
+        "column": 35
+      }
+    }
+  ],
+  {
+    "type": "Text",
+    "content": "\n? = ",
+    "position": {
+      "line": 57,
+      "column": 58
+    }
+  },
+  {
+    "type": "Condition",
+    "name": "TMPL_IF",
+    "conditions": [
+      {
+        "type": "ConditionBranch",
+        "condition": {
+          "type": "Expression",
+          "content": {
+            "type": "Identifier",
+            "name": "$assign_unknown",
+            "position": {
+              "line": 58,
+              "column": 17
+            }
+          },
+          "value": "$assign_unknown",
+          "stringEntities": {
+            "before": "[% ",
+            "after": " %]"
+          },
+          "position": {
+            "line": 58,
+            "column": 14
+          }
+        },
+        "content": [
+          {
+            "type": "Text",
+            "content": "1",
+            "position": {
+              "line": 58,
+              "column": 36
+            }
+          }
+        ],
+        "position": {
+          "line": 58,
+          "column": 5
+        }
+      }
+    ],
+    "otherwise": {
+      "type": "AlternateConditionBranch",
+      "content": [
+        {
+          "type": "Text",
+          "content": "0",
+          "position": {
+            "line": 58,
+            "column": 48
+          }
+        }
+      ],
+      "position": {
+        "line": 58,
+        "column": 37
+      }
+    },
+    "position": {
+      "line": 58,
+      "column": 5
+    }
+  },
+  {
+    "type": "Text",
+    "content": "\n",
+    "position": {
+      "line": 58,
+      "column": 59
     }
   }
 ]

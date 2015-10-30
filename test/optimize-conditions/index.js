@@ -32,8 +32,8 @@ describe('optimize-conditions', function() {
         )
         .using(
             optimizeConditions({
-                '$falsy': false,
-                '$truthy': true
+                'falsy': false,
+                'truthy': true
             })
         )
         .toAST(function(err, ast) {

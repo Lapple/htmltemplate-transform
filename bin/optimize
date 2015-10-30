@@ -43,8 +43,8 @@ var AST = parser.parse(templateString, PARSER_OPTIONS);
 transform(argv.path, null, PARSER_OPTIONS)
 .using(
     optimizeConditions({
-        '$falsy': false,
-        '$truthy': true
+        'falsy': false,
+        'truthy': true
     })
 )
 .toAST(function(err, optimizedAST) {
