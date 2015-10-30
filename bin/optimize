@@ -38,37 +38,44 @@ var argv = require('yargs')
 
 var templateString = fs.readFileSync(argv.path).toString();
 
-var AST = parser.parse(templateString, PARSER_OPTIONS);
+try {
+    var AST = parser.parse(templateString, PARSER_OPTIONS);
 
-transform(argv.path, null, PARSER_OPTIONS)
-.using(
-    optimizeConditions({
-        'falsy': false,
-        'truthy': true
-    })
-)
-.toAST(function(err, optimizedAST) {
-    if (err) {
-        return console.error(err);
-    }
-
-    if (argv.test) {
-        var templateFromInitialAST = astStringify(AST);
-        var templateFromOptimizedAST = astStringify(optimizedAST);
-
-        if (templateString !== templateFromInitialAST) {
-            console.log('%s: initial difference', argv.path);
+    transform(argv.path, null, PARSER_OPTIONS)
+    .using(
+        optimizeConditions({
+            'falsy': false,
+            'truthy': true
+        })
+    )
+    .toAST(function(err, optimizedAST) {
+        if (err) {
+            return console.error(err);
         }
 
-        if (templateString !== templateFromOptimizedAST) {
-            console.log('%s: optimizations possible', argv.path);
-        }
-        return;
-    }
+        if (argv.test) {
+            var templateFromInitialAST = astStringify(AST);
 
-    if (argv.ast) {
-        console.log(JSON.stringify(optimizedAST, null, 2));
-        return;
-    }
-    console.log(astStringify(optimizedAST));
-});
+            if (templateString !== templateFromInitialAST) {
+                console.log('%s: initial difference', argv.path);
+            } else {
+                console.log('%s: initial OK!', argv.path);
+
+                var templateFromOptimizedAST = astStringify(optimizedAST);
+
+                if (templateString !== templateFromOptimizedAST) {
+                    console.log('%s: optimizations possible', argv.path);
+                }
+            }
+            return;
+        }
+
+        if (argv.ast) {
+            console.log(JSON.stringify(optimizedAST, null, 2));
+            return;
+        }
+        console.log(astStringify(optimizedAST));
+    });
+} catch(e) {
+    console.log('Parser error');
+}

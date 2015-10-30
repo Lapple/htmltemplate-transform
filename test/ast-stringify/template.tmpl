@@ -8,7 +8,7 @@
 
     <ul class="list">
         <TMPL_LOOP
-        [% $state->{"people"} %]>
+        [% $state->{'people'} %]>
             <li class="item <TMPL_IF active>item--active</TMPL_IF>" onclick="itemClick(<TMPL_VAR id>)">
                 <TMPL_VAR name> <a href="#/items/<TMPL_VAR [% ($a or $b) and $c %]>">some link</a>
 

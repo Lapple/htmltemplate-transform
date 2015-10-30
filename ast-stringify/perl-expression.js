@@ -51,7 +51,7 @@ function handler() {
         var isString = typeof this.node.value === 'string';
 
         if (isString) {
-            return this.update(t('"') + t(this.node.value) + t('"'), true);
+            return this.update(t("'") + t(this.node.value) + t("'"), true);
         }
 
         return this.update(t(this.node.value), true);
