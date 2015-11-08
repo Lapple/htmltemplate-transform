@@ -1,0 +1,21 @@
+<TMPL_LOOP b_item>
+    <div class="common">
+        This part is common for some items.
+    </div>
+
+    <TMPL_IF b_skip>
+        <div class="break"></div>
+        <TMPL_BREAK>
+    <TMPL_ELSIF b_skip2>
+        <div class="break2"></div>
+        <TMPL_BREAK>
+    <TMPL_ELSE>
+        <div class="non-break">
+            This one is output until break is encountered.
+        </div>
+    </TMPL_IF>
+
+    <div class="non-break-as-well">
+        <TMPL_VAR b_value>
+    </div>
+</TMPL_LOOP>
