@@ -65,7 +65,9 @@ module.exports = function(options) {
                             for (var i = (index(parent) - 1); i >= 0; i -= 1) {
                                 precondition = binary(
                                     '&&',
-                                    not(rootCondition.node.conditions[i].condition),
+                                    not(
+                                        asExpression(rootCondition.node.conditions[i].condition)
+                                    ),
                                     precondition
                                 );
                             }

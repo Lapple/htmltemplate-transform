@@ -227,13 +227,8 @@
                                     "type": "UnaryExpression",
                                     "operator": "!",
                                     "argument": {
-                                        "type": "SingleAttribute",
-                                        "name": "b_unskip",
-                                        "value": null,
-                                        "position": {
-                                            "line": 6,
-                                            "column": 14
-                                        }
+                                        "type": "Identifier",
+                                        "name": "$b_unskip"
                                     },
                                     "prefix": true
                                 },
