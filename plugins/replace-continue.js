@@ -140,9 +140,12 @@ module.exports = function(options) {
                             conditions: [
                                 {
                                     type: 'ConditionBranch',
-                                    condition: continuation.preconditions.reduceRight(
-                                        binary.bind(null, '&&')
-                                    ),
+                                    condition: {
+                                        type: 'Expression',
+                                        content: continuation.preconditions.reduceRight(
+                                            binary.bind(null, '&&')
+                                        )
+                                    },
                                     content: content.slice(continuation.index)
                                 }
                             ]
@@ -165,16 +168,11 @@ function asExpression(condition) {
         var identifier = '$' + condition.name;
 
         return {
-            type: 'Expression',
-            content: {
-                type: 'Identifier',
-                name: identifier
-            },
-            value: identifier,
-            position: condition.position
+            type: 'Identifier',
+            name: identifier
         };
     } else {
-        return condition;
+        return condition.content;
     }
 }
 

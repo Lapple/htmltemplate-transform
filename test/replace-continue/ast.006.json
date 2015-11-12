@@ -131,11 +131,6 @@
                                             "content": {
                                                 "type": "Identifier",
                                                 "name": "$b_skip"
-                                            },
-                                            "value": "$b_skip",
-                                            "position": {
-                                                "line": 6,
-                                                "column": 18
                                             }
                                         },
                                         "content": [
