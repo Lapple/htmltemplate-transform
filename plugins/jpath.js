@@ -75,6 +75,8 @@ function memberExpression(path) {
 
 function isJPathAccessToken(node) {
     return (
+        // This can be `undefined` when an expression PairAttribute is met.
+        node &&
         node.type === 'Identifier' &&
         node.name.indexOf('.') !== -1
     );

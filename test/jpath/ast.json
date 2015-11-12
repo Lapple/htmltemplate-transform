@@ -321,5 +321,56 @@
             "line": 6,
             "column": 31
         }
+    },
+    {
+        "type": "Tag",
+        "name": "TMPL_VAR",
+        "attributes": [
+            {
+                "type": "SingleAttribute",
+                "name": "label",
+                "value": null,
+                "position": {
+                    "line": 7,
+                    "column": 11
+                }
+            },
+            {
+                "type": "PairAttribute",
+                "name": "attribute",
+                "value": {
+                    "type": "Expression",
+                    "content": {
+                        "type": "Identifier",
+                        "name": "$expression",
+                        "position": {
+                            "line": 8,
+                            "column": 18
+                        }
+                    },
+                    "value": "$expression",
+                    "position": {
+                        "line": 8,
+                        "column": 15
+                    }
+                },
+                "position": {
+                    "line": 8,
+                    "column": 5
+                }
+            }
+        ],
+        "position": {
+            "line": 7,
+            "column": 1
+        }
+    },
+    {
+        "type": "Text",
+        "content": "\n",
+        "position": {
+            "line": 8,
+            "column": 33
+        }
     }
 ]
