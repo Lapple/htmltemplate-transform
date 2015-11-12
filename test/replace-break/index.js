@@ -9,7 +9,7 @@ describe('replace-break transform', function() {
     ['001', '002'].forEach(function(n) {
         var filename = 'template.' + n + '.tmpl';
 
-        it(filename, function(done) {
+        it(filename, function() {
             var template = path.join(__dirname, filename);
             var expected = JSON.parse(
                 fs.readFileSync(
@@ -18,21 +18,15 @@ describe('replace-break transform', function() {
                 )
             );
 
-            transform(template)
+            var ast = transform(template)
                 .using(
                     replaceBreak({
                         loopTags: ['TMPL_LOOP', 'TMPL_FOR']
                     })
                 )
-                .toAST(function(err, ast) {
-                    if (err) {
-                        done(err);
-                    } else {
-                        assert.deepEqual(ast, expected);
+                .toAST();
 
-                        done();
-                    }
-                });
+            assert.deepEqual(ast, expected);
         });
     });
 });

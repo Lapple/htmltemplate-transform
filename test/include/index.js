@@ -16,8 +16,8 @@ describe('include transform', function() {
         );
     });
 
-    it('should insert the included template in place', function(done) {
-        transform(this.template)
+    it('should insert the included template in place', function() {
+        var ast = transform(this.template)
             .using(
                 include({
                     includeTags: ['TMPL_INCLUDE'],
@@ -26,15 +26,9 @@ describe('include transform', function() {
                     }
                 })
             )
-            .toAST(function(err, ast) {
-                if (err) {
-                    done(err);
-                } else {
-                    assert.deepEqual(ast, this.expected);
+            .toAST();
 
-                    done();
-                }
-            }.bind(this));
+        assert.deepEqual(ast, this.expected);
     });
 
 });

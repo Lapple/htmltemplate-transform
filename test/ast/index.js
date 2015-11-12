@@ -9,8 +9,8 @@ describe('accepting AST', function() {
         this.output = require('./out');
     });
 
-    it('should accept AST as a second parameter', function(done) {
-        transform('template.tmpl', this.input)
+    it('should accept AST as a second parameter', function() {
+        var ast = transform('template.tmpl', this.input)
             .using(function(node) {
                 if (node.type === 'SingleAttribute' && node.name === 'a') {
                     this.update(
@@ -19,15 +19,9 @@ describe('accepting AST', function() {
                     );
                 }
             })
-            .toAST(function(err, ast) {
-                if (err) {
-                    done(err);
-                } else {
-                    assert.deepEqual(ast, this.output);
+            .toAST();
 
-                    done();
-                }
-            }.bind(this));
+        assert.deepEqual(ast, this.output);
     });
 
 });

@@ -22,14 +22,10 @@ var jpath = require('htmltemplate-transform/plugins/jpath');
 
 var templateFile = path.join(__dirname, 'template.tmpl');
 
-transform(templateFile)
+var ast = transform(templateFile)
     .using(include())
     .using(jpath()) // Plugins can be chained.
-    .toAST(function(err, ast) {
-        if (err) {
-            console.error('%s', err);
-        } else {
-            console.log(ast);
-        }
-    });
+    .toAST();
+
+console.log(ast);
 ```

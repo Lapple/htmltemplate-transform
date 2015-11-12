@@ -9,49 +9,42 @@ describe('basic functionality', function() {
         this.template = path.join(__dirname, 'template.tmpl');
     });
 
-    it('should leave AST intact when no transforms were specified', function(done) {
-        transform(this.template)
-            .toAST(function(err, ast) {
-                if (err) {
-                    done(err);
-                } else {
-                    assert.deepEqual(ast, [
-                        {
-                            type: 'Tag',
-                            name: 'TMPL_VAR',
-                            attributes: [
-                                {
-                                    type: 'SingleAttribute',
-                                    name: 'a',
-                                    value: null,
-                                    position: {
-                                        line: 1,
-                                        column: 11
-                                    }
-                                }
-                            ],
-                            position: {
-                                line: 1,
-                                column: 1
-                            }
-                        },
-                        {
-                            type: 'Text',
-                            content: '\n',
-                            position: {
-                                line: 1,
-                                column: 13
-                            }
-                        }
-                    ]);
+    it('should leave AST intact when no transforms were specified', function() {
+        var ast = transform(this.template).toAST();
 
-                    done();
+        assert.deepEqual(ast, [
+            {
+                type: 'Tag',
+                name: 'TMPL_VAR',
+                attributes: [
+                    {
+                        type: 'SingleAttribute',
+                        name: 'a',
+                        value: null,
+                        position: {
+                            line: 1,
+                            column: 11
+                        }
+                    }
+                ],
+                position: {
+                    line: 1,
+                    column: 1
                 }
-            });
+            },
+            {
+                type: 'Text',
+                content: '\n',
+                position: {
+                    line: 1,
+                    column: 13
+                }
+            }
+        ]);
     });
 
-    it('should apply basic transform', function(done) {
-        transform(this.template)
+    it('should apply basic transform', function() {
+        var ast = transform(this.template)
             .using(function(node) {
                 if (node.type === 'SingleAttribute' && node.name === 'a') {
                     this.update(
@@ -60,47 +53,41 @@ describe('basic functionality', function() {
                     );
                 }
             })
-            .toAST(function(err, ast) {
-                if (err) {
-                    done(err);
-                } else {
-                    assert.deepEqual(ast, [
-                        {
-                            type: 'Tag',
-                            name: 'TMPL_VAR',
-                            attributes: [
-                                {
-                                    type: 'SingleAttribute',
-                                    name: 'b',
-                                    value: null,
-                                    position: {
-                                        line: 1,
-                                        column: 11
-                                    }
-                                }
-                            ],
-                            position: {
-                                line: 1,
-                                column: 1
-                            }
-                        },
-                        {
-                            type: 'Text',
-                            content: '\n',
-                            position: {
-                                line: 1,
-                                column: 13
-                            }
-                        }
-                    ]);
+            .toAST();
 
-                    done();
+        assert.deepEqual(ast, [
+            {
+                type: 'Tag',
+                name: 'TMPL_VAR',
+                attributes: [
+                    {
+                        type: 'SingleAttribute',
+                        name: 'b',
+                        value: null,
+                        position: {
+                            line: 1,
+                            column: 11
+                        }
+                    }
+                ],
+                position: {
+                    line: 1,
+                    column: 1
                 }
-            });
+            },
+            {
+                type: 'Text',
+                content: '\n',
+                position: {
+                    line: 1,
+                    column: 13
+                }
+            }
+        ]);
     });
 
-    it('should apply multiple transforms', function(done) {
-        transform(this.template)
+    it('should apply multiple transforms', function() {
+        var ast = transform(this.template)
             .using(function(node) {
                 if (node.type === 'SingleAttribute' && node.name === 'a') {
                     this.update(
@@ -121,42 +108,36 @@ describe('basic functionality', function() {
                     );
                 }
             })
-            .toAST(function(err, ast) {
-                if (err) {
-                    done(err);
-                } else {
-                    assert.deepEqual(ast, [
-                        {
-                            type: 'Tag',
-                            name: 'TMPL_VAR',
-                            attributes: [
-                                {
-                                    type: 'PairAttribute',
-                                    name: 'name',
-                                    value: 'b',
-                                    position: {
-                                        line: 1,
-                                        column: 11
-                                    }
-                                }
-                            ],
-                            position: {
-                                line: 1,
-                                column: 1
-                            }
-                        },
-                        {
-                            type: 'Text',
-                            content: '\n',
-                            position: {
-                                line: 1,
-                                column: 13
-                            }
-                        }
-                    ]);
+            .toAST();
 
-                    done();
+        assert.deepEqual(ast, [
+            {
+                type: 'Tag',
+                name: 'TMPL_VAR',
+                attributes: [
+                    {
+                        type: 'PairAttribute',
+                        name: 'name',
+                        value: 'b',
+                        position: {
+                            line: 1,
+                            column: 11
+                        }
+                    }
+                ],
+                position: {
+                    line: 1,
+                    column: 1
                 }
-            });
+            },
+            {
+                type: 'Text',
+                content: '\n',
+                position: {
+                    line: 1,
+                    column: 13
+                }
+            }
+        ]);
     });
 });

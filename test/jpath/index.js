@@ -16,20 +16,12 @@ describe('jpath transform', function() {
         );
     });
 
-    it('should convert all jpath lookups to safe-lookup expressions', function(done) {
-        transform(this.template)
-            .using(
-                jpath()
-            )
-            .toAST(function(err, ast) {
-                if (err) {
-                    done(err);
-                } else {
-                    assert.deepEqual(ast, this.expected);
+    it('should convert all jpath lookups to safe-lookup expressions', function() {
+        var ast = transform(this.template)
+            .using(jpath())
+            .toAST();
 
-                    done();
-                }
-            }.bind(this));
+        assert.deepEqual(ast, this.expected);
     });
 
 });

@@ -7,39 +7,38 @@ var assert = require('assert');
 
 var parser = require('htmltemplate-parser');
 
-var transform = require('../../');
+var transform = require('../..');
 
 var optimizeConditions = require('../../plugins/optimize-conditions');
 
 var astStringify = require('../../ast-stringify/');
 
 describe('optimize-conditions', function() {
-    it('should optimize TMPL_IF conditions', function(done) {
-        var expected = JSON.parse(
+    before(function() {
+        this.template = path.join(__dirname, 'template.tmpl');
+        this.expected = JSON.parse(
             fs.readFileSync(
                 path.join(__dirname, 'ast.json'),
                 'utf8'
             )
         );
+    });
 
-        transform(
-            path.join(__dirname, 'template.tmpl'),
-            null,
-            {
-                ignoreHTMLTags: true,
-                collectStringEntities: true
-            }
-        )
-        .using(
-            optimizeConditions({
-                'falsy': false,
-                'truthy': true
-            })
-        )
-        .toAST(function(err, ast) {
-            assert.deepEqual(ast, expected);
+    it('should optimize TMPL_IF conditions', function() {
+        var parserOptions = {
+            ignoreHTMLTags: true,
+            collectStringEntities: true
+        };
 
-            done();
-        });
+        var ast = transform(this.template, null, parserOptions)
+            .using(
+                optimizeConditions({
+                    'falsy': false,
+                    'truthy': true
+                })
+            )
+            .toAST();
+
+        assert.deepEqual(ast, this.expected);
     });
 });
