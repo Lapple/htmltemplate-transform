@@ -255,49 +255,6 @@
                                     "line": 11,
                                     "column": 9
                                 }
-                            },
-                            {
-                                "type": "Condition",
-                                "name": "TMPL_UNLESS",
-                                "conditions": [
-                                    {
-                                        "type": "ConditionBranch",
-                                        "condition": {
-                                            "type": "Expression",
-                                            "content": {
-                                                "type": "CallExpression",
-                                                "callee": {
-                                                    "type": "FunctionIdentifier",
-                                                    "name": "figure_out_in_runtime",
-                                                    "position": {
-                                                        "line": 11,
-                                                        "column": 21
-                                                    }
-                                                },
-                                                "arguments": [
-                                                    {
-                                                        "type": "Identifier",
-                                                        "name": "$b_skippable",
-                                                        "position": {
-                                                            "line": 11,
-                                                            "column": 43
-                                                        }
-                                                    }
-                                                ]
-                                            }
-                                        },
-                                        "content": [
-                                            {
-                                                "type": "Text",
-                                                "content": "\n    ",
-                                                "position": {
-                                                    "line": 17,
-                                                    "column": 19
-                                                }
-                                            }
-                                        ]
-                                    }
-                                ]
                             }
                         ],
                         "position": {

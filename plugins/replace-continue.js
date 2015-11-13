@@ -1,6 +1,8 @@
 var assert = require('assert');
 var assign = require('object-assign');
 
+var NON_WHITESPACE = /\S/;
+
 module.exports = function(options) {
     var loops = options.loopTags;
 
@@ -157,6 +159,12 @@ module.exports = function(options) {
                             return content;
                         }
 
+                        // Don't guard non-meaningful content, e.g. whitespace
+                        // and comments.
+                        if (skippableContent.every(isWhitespaceOrComment)) {
+                            return content.slice(0, continuation.index);
+                        }
+
                         return content
                             .slice(0, continuation.index)
                             .concat({
@@ -237,4 +245,14 @@ function lastIndexOf(list, fn) {
 
 function pathKey(path) {
     return path.join('.');
+}
+
+function isWhitespaceOrComment(node) {
+    return (
+        node.type === 'Comment' ||
+        (
+            node.type === 'Text' &&
+            !NON_WHITESPACE.test(node.content)
+        )
+    );
 }

@@ -246,40 +246,6 @@
                                     "line": 3,
                                     "column": 9
                                 }
-                            },
-                            {
-                                "type": "Condition",
-                                "name": "TMPL_UNLESS",
-                                "conditions": [
-                                    {
-                                        "type": "ConditionBranch",
-                                        "condition": {
-                                            "type": "Expression",
-                                            "content": {
-                                                "type": "BinaryExpression",
-                                                "operator": "&&",
-                                                "left": {
-                                                    "type": "Identifier",
-                                                    "name": "$b_nested_condition"
-                                                },
-                                                "right": {
-                                                    "type": "Identifier",
-                                                    "name": "$b_skip"
-                                                }
-                                            }
-                                        },
-                                        "content": [
-                                            {
-                                                "type": "Text",
-                                                "content": "\n    ",
-                                                "position": {
-                                                    "line": 13,
-                                                    "column": 19
-                                                }
-                                            }
-                                        ]
-                                    }
-                                ]
                             }
                         ],
                         "position": {
