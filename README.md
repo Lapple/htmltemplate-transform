@@ -23,7 +23,14 @@ var jpath = require('htmltemplate-transform/plugins/jpath');
 var templateFile = path.join(__dirname, 'template.tmpl');
 
 var ast = transform(templateFile)
-    .using(include())
+    .using(
+        include({
+            includeTags: ['TMPL_INCLUDE'],
+            resolvePath: function(tagname, from, to) {
+                return path.resolve(path.dirname(from), to);
+            }
+        })
+    )
     .using(jpath()) // Plugins can be chained.
     .toAST();
 
