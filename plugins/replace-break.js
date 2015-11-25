@@ -26,25 +26,7 @@ module.exports = function(options) {
 
                 breaks.push(breakId);
                 updatedContent.push(
-                    {
-                        type: 'Tag',
-                        name: 'TMPL_ASSIGN',
-                        attributes: [
-                            {
-                                type: 'SingleAttribute',
-                                name: breakId,
-                                value: null,
-                                position: node[breakIndex].position
-                            },
-                            {
-                                type: 'Expression',
-                                content: {
-                                    type: 'Literal',
-                                    value: 1
-                                }
-                            }
-                        ]
-                    },
+                    assignTag(breakId, 1),
                     {
                         type: 'Tag',
                         name: 'TMPL_CONTINUE'
@@ -93,16 +75,56 @@ module.exports = function(options) {
                         }
                     ];
 
-                    breaks = [];
-                    this.update(
-                        assign({}, node, { content: updatedContent }),
-                        true
-                    );
+                    // Reset "break" flags after the loop is run.
+                    var unassignments = breaks.map(function(breakId) {
+                        return assignTag(breakId, 0);
+                    });
+
+                    this.parent.post(function() {
+                        this.update(
+                            this.node.reduce(function(content, child) {
+                                if (child === node) {
+                                    var updatedNode = assign({}, node, { content: updatedContent });
+
+                                    content.push(updatedNode);
+                                    content.push.apply(content, unassignments);
+                                } else {
+                                    content.push(child);
+                                }
+
+                                return content;
+                            }, []),
+                            true
+                        );
+
+                        breaks = [];
+                    });
                 }
             });
         }
     };
 };
+
+function assignTag(name, value) {
+    return {
+        type: 'Tag',
+        name: 'TMPL_ASSIGN',
+        attributes: [
+            {
+                type: 'SingleAttribute',
+                name: name,
+                value: null
+            },
+            {
+                type: 'Expression',
+                content: {
+                    type: 'Literal',
+                    value: value
+                }
+            }
+        ]
+    };
+}
 
 function findIndex(list, predicate) {
     for (var i = 0, len = list.length; i < len; i += 1) {

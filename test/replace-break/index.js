@@ -6,7 +6,7 @@ var transform = require('../..');
 var replaceBreak = require('../../plugins/replace-break');
 
 describe('replace-break transform', function() {
-    ['001', '002'].forEach(function(n) {
+    ['001', '002', '003'].forEach(function(n) {
         var filename = 'template.' + n + '.tmpl';
 
         it(filename, function() {

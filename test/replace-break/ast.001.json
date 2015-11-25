@@ -146,11 +146,7 @@
                                                     {
                                                         "type": "SingleAttribute",
                                                         "name": "b_l___br0",
-                                                        "value": null,
-                                                        "position": {
-                                                            "line": 10,
-                                                            "column": 9
-                                                        }
+                                                        "value": null
                                                     },
                                                     {
                                                         "type": "Expression",
@@ -313,6 +309,24 @@
             "line": 1,
             "column": 1
         }
+    },
+    {
+        "type": "Tag",
+        "name": "TMPL_ASSIGN",
+        "attributes": [
+            {
+                "type": "SingleAttribute",
+                "name": "b_l___br0",
+                "value": null
+            },
+            {
+                "type": "Expression",
+                "content": {
+                    "type": "Literal",
+                    "value": 0
+                }
+            }
+        ]
     },
     {
         "type": "Text",

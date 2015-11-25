@@ -1,0 +1,21 @@
+<TMPL_LOOP blogs>
+    <TMPL_LOOP categories>
+        <div class="category">
+            <TMPL_VAR name>
+        </div>
+        <TMPL_IF [% __counter__ == 4 %]>
+            <TMPL_BREAK>
+        </TMPL_IF>
+    </TMPL_LOOP>
+
+    <TMPL_LOOP posts>
+        <div class="post">
+            <TMPL_VAR title>
+        </div>
+        <TMPL_IF [% __counter__ == 10 %]>
+            <TMPL_BREAK>
+        </TMPL_IF>
+    </TMPL_LOOP>
+
+    <a href="#top">Back to top</a>
+</TMPL_LOOP>
