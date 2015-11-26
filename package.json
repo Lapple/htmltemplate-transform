@@ -16,7 +16,7 @@
     "url": "git://github.com/Lapple/htmltemplate-transform.git"
   },
   "dependencies": {
-    "htmltemplate-parser": "0.4.1",
+    "htmltemplate-parser": "0.4.2",
     "object-assign": "4.0.1",
     "traverse": "0.6.6",
     "yargs": "^3.29.0"
