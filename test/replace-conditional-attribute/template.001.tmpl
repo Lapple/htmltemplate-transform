@@ -1,0 +1,24 @@
+<div class="container">
+    <input type="text" <TMPL_IF input_is_checked>checked</TMPL_IF> />
+    <button type="button" <TMPL_IF button_is_disabled>disabled</TMPL_IF>>Button</button>
+    <hr <TMPL_IF hr_is_bold>class="hr--bold"</TMPL_IF>/>
+    <input
+        <TMPL_IF [% $type ne 'submit' and $type ne 'tel' %]>
+            type="<TMPL_VAR type>"
+        <TMPL_ELSIF [% $type eq 'tel' %]>
+            type="text"
+        </TMPL_IF> />
+    <button
+        <TMPL_IF [% $submit_disabled %]>
+            type="submit"
+            disabled
+        <TMPL_ELSE>
+            type="button"
+        </TMPL_IF>>
+        <TMPL_IF submit_disabled>
+            Submit
+        <TMPL_ELSE>
+            Next
+        </TMPL_IF>
+    </button>
+</div>

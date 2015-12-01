@@ -1,0 +1,539 @@
+[
+    {
+        "type": "HTMLTag",
+        "name": "div",
+        "attributes": [
+            {
+                "type": "PairAttribute",
+                "name": "class",
+                "value": "container",
+                "position": {
+                    "line": 1,
+                    "column": 6
+                }
+            }
+        ],
+        "content": [
+            {
+                "type": "Text",
+                "content": "\n    ",
+                "position": {
+                    "line": 1,
+                    "column": 24
+                }
+            },
+            {
+                "type": "HTMLTag",
+                "name": "input",
+                "attributes": [
+                    {
+                        "type": "PairAttribute",
+                        "name": "type",
+                        "value": "text",
+                        "position": {
+                            "line": 2,
+                            "column": 12
+                        }
+                    },
+                    {
+                        "type": "PairAttribute",
+                        "name": "checked",
+                        "value": {
+                            "type": "Expression",
+                            "content": {
+                                "type": "ConditionalExpression",
+                                "test": {
+                                    "type": "Identifier",
+                                    "name": "$input_is_checked"
+                                },
+                                "consequent": [
+                                    {
+                                        "type": "Literal",
+                                        "value": true
+                                    }
+                                ],
+                                "alternate": {
+                                    "type": "Literal",
+                                    "value": null
+                                }
+                            }
+                        }
+                    }
+                ],
+                "position": {
+                    "line": 2,
+                    "column": 5
+                }
+            },
+            {
+                "type": "Text",
+                "content": "\n    ",
+                "position": {
+                    "line": 2,
+                    "column": 70
+                }
+            },
+            {
+                "type": "HTMLTag",
+                "name": "button",
+                "attributes": [
+                    {
+                        "type": "PairAttribute",
+                        "name": "type",
+                        "value": "button",
+                        "position": {
+                            "line": 3,
+                            "column": 13
+                        }
+                    },
+                    {
+                        "type": "PairAttribute",
+                        "name": "disabled",
+                        "value": {
+                            "type": "Expression",
+                            "content": {
+                                "type": "ConditionalExpression",
+                                "test": {
+                                    "type": "Identifier",
+                                    "name": "$button_is_disabled"
+                                },
+                                "consequent": [
+                                    {
+                                        "type": "Literal",
+                                        "value": true
+                                    }
+                                ],
+                                "alternate": {
+                                    "type": "Literal",
+                                    "value": null
+                                }
+                            }
+                        }
+                    }
+                ],
+                "content": [
+                    {
+                        "type": "Text",
+                        "content": "Button",
+                        "position": {
+                            "line": 3,
+                            "column": 74
+                        }
+                    }
+                ],
+                "position": {
+                    "line": 3,
+                    "column": 5
+                }
+            },
+            {
+                "type": "Text",
+                "content": "\n    ",
+                "position": {
+                    "line": 3,
+                    "column": 89
+                }
+            },
+            {
+                "type": "HTMLTag",
+                "name": "hr",
+                "attributes": [
+                    {
+                        "type": "PairAttribute",
+                        "name": "class",
+                        "value": {
+                            "type": "Expression",
+                            "content": {
+                                "type": "ConditionalExpression",
+                                "test": {
+                                    "type": "Identifier",
+                                    "name": "$hr_is_bold"
+                                },
+                                "consequent": [
+                                    {
+                                        "type": "Literal",
+                                        "value": "hr--bold"
+                                    }
+                                ],
+                                "alternate": {
+                                    "type": "Literal",
+                                    "value": null
+                                }
+                            }
+                        }
+                    }
+                ],
+                "position": {
+                    "line": 4,
+                    "column": 5
+                }
+            },
+            {
+                "type": "Text",
+                "content": "\n    ",
+                "position": {
+                    "line": 4,
+                    "column": 57
+                }
+            },
+            {
+                "type": "HTMLTag",
+                "name": "input",
+                "attributes": [
+                    {
+                        "type": "PairAttribute",
+                        "name": "type",
+                        "value": {
+                            "type": "Expression",
+                            "content": {
+                                "type": "ConditionalExpression",
+                                "test": {
+                                    "type": "BinaryExpression",
+                                    "operator": "and",
+                                    "left": {
+                                        "type": "BinaryExpression",
+                                        "operator": "ne",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "$type",
+                                            "position": {
+                                                "line": 6,
+                                                "column": 21
+                                            }
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": "submit",
+                                            "position": {
+                                                "line": 6,
+                                                "column": 30
+                                            }
+                                        }
+                                    },
+                                    "right": {
+                                        "type": "BinaryExpression",
+                                        "operator": "ne",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "$type",
+                                            "position": {
+                                                "line": 6,
+                                                "column": 43
+                                            }
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": "tel",
+                                            "position": {
+                                                "line": 6,
+                                                "column": 52
+                                            }
+                                        }
+                                    }
+                                },
+                                "consequent": [
+                                    {
+                                        "type": "Tag",
+                                        "name": "TMPL_VAR",
+                                        "attributes": [
+                                            {
+                                                "type": "SingleAttribute",
+                                                "name": "type",
+                                                "value": null,
+                                                "position": {
+                                                    "line": 7,
+                                                    "column": 29
+                                                }
+                                            }
+                                        ],
+                                        "position": {
+                                            "line": 7,
+                                            "column": 19
+                                        }
+                                    }
+                                ],
+                                "alternate": {
+                                    "type": "ConditionalExpression",
+                                    "test": {
+                                        "type": "BinaryExpression",
+                                        "operator": "&&",
+                                        "left": {
+                                            "type": "UnaryExpression",
+                                            "operator": "!",
+                                            "argument": {
+                                                "type": "BinaryExpression",
+                                                "operator": "and",
+                                                "left": {
+                                                    "type": "BinaryExpression",
+                                                    "operator": "ne",
+                                                    "left": {
+                                                        "type": "Identifier",
+                                                        "name": "$type",
+                                                        "position": {
+                                                            "line": 6,
+                                                            "column": 21
+                                                        }
+                                                    },
+                                                    "right": {
+                                                        "type": "Literal",
+                                                        "value": "submit",
+                                                        "position": {
+                                                            "line": 6,
+                                                            "column": 30
+                                                        }
+                                                    }
+                                                },
+                                                "right": {
+                                                    "type": "BinaryExpression",
+                                                    "operator": "ne",
+                                                    "left": {
+                                                        "type": "Identifier",
+                                                        "name": "$type",
+                                                        "position": {
+                                                            "line": 6,
+                                                            "column": 43
+                                                        }
+                                                    },
+                                                    "right": {
+                                                        "type": "Literal",
+                                                        "value": "tel",
+                                                        "position": {
+                                                            "line": 6,
+                                                            "column": 52
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "prefix": true
+                                        },
+                                        "right": {
+                                            "type": "BinaryExpression",
+                                            "operator": "eq",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "$type",
+                                                "position": {
+                                                    "line": 8,
+                                                    "column": 24
+                                                }
+                                            },
+                                            "right": {
+                                                "type": "Literal",
+                                                "value": "tel",
+                                                "position": {
+                                                    "line": 8,
+                                                    "column": 33
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "consequent": [
+                                        {
+                                            "type": "Literal",
+                                            "value": "text"
+                                        }
+                                    ],
+                                    "alternate": {
+                                        "type": "Literal",
+                                        "value": null
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ],
+                "position": {
+                    "line": 5,
+                    "column": 5
+                }
+            },
+            {
+                "type": "Text",
+                "content": "\n    ",
+                "position": {
+                    "line": 10,
+                    "column": 22
+                }
+            },
+            {
+                "type": "HTMLTag",
+                "name": "button",
+                "attributes": [
+                    {
+                        "type": "PairAttribute",
+                        "name": "type",
+                        "value": {
+                            "type": "Expression",
+                            "content": {
+                                "type": "ConditionalExpression",
+                                "test": {
+                                    "type": "Identifier",
+                                    "name": "$submit_disabled",
+                                    "position": {
+                                        "line": 12,
+                                        "column": 21
+                                    }
+                                },
+                                "consequent": [
+                                    {
+                                        "type": "Literal",
+                                        "value": "submit"
+                                    }
+                                ],
+                                "alternate": {
+                                    "type": "ConditionalExpression",
+                                    "test": {
+                                        "type": "UnaryExpression",
+                                        "operator": "!",
+                                        "argument": {
+                                            "type": "Identifier",
+                                            "name": "$submit_disabled",
+                                            "position": {
+                                                "line": 12,
+                                                "column": 21
+                                            }
+                                        },
+                                        "prefix": true
+                                    },
+                                    "consequent": [
+                                        {
+                                            "type": "Literal",
+                                            "value": "button"
+                                        }
+                                    ],
+                                    "alternate": {
+                                        "type": "Literal",
+                                        "value": null
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "PairAttribute",
+                        "name": "disabled",
+                        "value": {
+                            "type": "Expression",
+                            "content": {
+                                "type": "ConditionalExpression",
+                                "test": {
+                                    "type": "Identifier",
+                                    "name": "$submit_disabled",
+                                    "position": {
+                                        "line": 12,
+                                        "column": 21
+                                    }
+                                },
+                                "consequent": [
+                                    {
+                                        "type": "Literal",
+                                        "value": true
+                                    }
+                                ],
+                                "alternate": {
+                                    "type": "Literal",
+                                    "value": null
+                                }
+                            }
+                        }
+                    }
+                ],
+                "content": [
+                    {
+                        "type": "Text",
+                        "content": "\n        ",
+                        "position": {
+                            "line": 17,
+                            "column": 20
+                        }
+                    },
+                    {
+                        "type": "Condition",
+                        "name": "TMPL_IF",
+                        "conditions": [
+                            {
+                                "type": "ConditionBranch",
+                                "condition": {
+                                    "type": "SingleAttribute",
+                                    "name": "submit_disabled",
+                                    "value": null,
+                                    "position": {
+                                        "line": 18,
+                                        "column": 18
+                                    }
+                                },
+                                "content": [
+                                    {
+                                        "type": "Text",
+                                        "content": "\n            Submit\n        ",
+                                        "position": {
+                                            "line": 18,
+                                            "column": 34
+                                        }
+                                    }
+                                ],
+                                "position": {
+                                    "line": 18,
+                                    "column": 9
+                                }
+                            }
+                        ],
+                        "otherwise": {
+                            "type": "AlternateConditionBranch",
+                            "content": [
+                                {
+                                    "type": "Text",
+                                    "content": "\n            Next\n        ",
+                                    "position": {
+                                        "line": 20,
+                                        "column": 20
+                                    }
+                                }
+                            ],
+                            "position": {
+                                "line": 20,
+                                "column": 9
+                            }
+                        },
+                        "position": {
+                            "line": 18,
+                            "column": 9
+                        }
+                    },
+                    {
+                        "type": "Text",
+                        "content": "\n    ",
+                        "position": {
+                            "line": 22,
+                            "column": 19
+                        }
+                    }
+                ],
+                "position": {
+                    "line": 11,
+                    "column": 5
+                }
+            },
+            {
+                "type": "Text",
+                "content": "\n",
+                "position": {
+                    "line": 23,
+                    "column": 14
+                }
+            }
+        ],
+        "position": {
+            "line": 1,
+            "column": 1
+        }
+    },
+    {
+        "type": "Text",
+        "content": "\n",
+        "position": {
+            "line": 24,
+            "column": 7
+        }
+    }
+]
