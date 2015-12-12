@@ -165,6 +165,7 @@
             "left": {
               "type": "Literal",
               "value": 0,
+              "raw": 0,
               "position": {
                 "line": 16,
                 "column": 17
@@ -467,6 +468,7 @@
             "left": {
               "type": "Literal",
               "value": 1,
+              "raw": 1,
               "position": {
                 "line": 30,
                 "column": 17
@@ -673,6 +675,10 @@
       "position": {
         "line": 38,
         "column": 5
+      },
+      "stringEntities": {
+        "before": "<",
+        "after": ">"
       }
     },
     {
@@ -700,6 +706,10 @@
       "position": {
         "line": 39,
         "column": 5
+      },
+      "stringEntities": {
+        "before": "<",
+        "after": ">"
       }
     },
     {
@@ -746,6 +756,33 @@
     "position": {
       "line": 44,
       "column": 1
+    },
+    "stringEntities": {
+      "start": {
+        "name": "TMPL_SETVAR",
+        "attributes": [
+          {
+            "type": "SingleAttribute",
+            "name": "setvar_falsy",
+            "value": null,
+            "position": {
+              "line": 44,
+              "column": 14
+            }
+          }
+        ],
+        "stringEntities": {
+          "before": "<",
+          "after": ">"
+        }
+      },
+      "end": {
+        "name": "TMPL_SETVAR",
+        "stringEntities": {
+          "before": "</",
+          "after": ">"
+        }
+      }
     }
   },
   {
@@ -783,6 +820,33 @@
     "position": {
       "line": 45,
       "column": 1
+    },
+    "stringEntities": {
+      "start": {
+        "name": "TMPL_SETVAR",
+        "attributes": [
+          {
+            "type": "SingleAttribute",
+            "name": "setvar_truthy",
+            "value": null,
+            "position": {
+              "line": 45,
+              "column": 14
+            }
+          }
+        ],
+        "stringEntities": {
+          "before": "<",
+          "after": ">"
+        }
+      },
+      "end": {
+        "name": "TMPL_SETVAR",
+        "stringEntities": {
+          "before": "</",
+          "after": ">"
+        }
+      }
     }
   },
   {
@@ -847,6 +911,7 @@
         "content": {
           "type": "Literal",
           "value": 0,
+          "raw": 0,
           "position": {
             "line": 52,
             "column": 30
@@ -866,6 +931,10 @@
     "position": {
       "line": 52,
       "column": 1
+    },
+    "stringEntities": {
+      "before": "<",
+      "after": ">"
     }
   },
   {
@@ -894,6 +963,7 @@
         "content": {
           "type": "Literal",
           "value": 1,
+          "raw": 1,
           "position": {
             "line": 53,
             "column": 31
@@ -913,6 +983,10 @@
     "position": {
       "line": 53,
       "column": 1
+    },
+    "stringEntities": {
+      "before": "<",
+      "after": ">"
     }
   },
   {
@@ -960,6 +1034,10 @@
     "position": {
       "line": 54,
       "column": 1
+    },
+    "stringEntities": {
+      "before": "<",
+      "after": ">"
     }
   },
   {

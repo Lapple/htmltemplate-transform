@@ -4,7 +4,7 @@
   "description": "Pluggable transforms for HTML::Template",
   "main": "index.js",
   "scripts": {
-    "test": "mocha 'test/**/*.js' --bail"
+    "test": "mocha test/**/*.js --bail"
   },
   "keywords": [
     "htmltemplate"
@@ -16,7 +16,7 @@
     "url": "git://github.com/Lapple/htmltemplate-transform.git"
   },
   "dependencies": {
-    "htmltemplate-parser": "0.4.4",
+    "htmltemplate-parser": "1.0.0",
     "object-assign": "4.0.1",
     "traverse": "0.6.6",
     "yargs": "^3.29.0"

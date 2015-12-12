@@ -100,7 +100,7 @@ module.exports = function(knownIdentifiers) {
         }
 
         // very basic implementation for now
-        if (node.name === 'TMPL_SETVAR') {
+        if (node.type === 'Tag' && node.name === 'TMPL_SETVAR') {
             var identifierName = String(node.attributes[0].name);
 
             knownIdentifiers[identifierName] = evaluate(node.content[0]);

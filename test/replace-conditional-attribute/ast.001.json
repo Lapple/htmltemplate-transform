@@ -204,6 +204,7 @@
                                         "right": {
                                             "type": "Literal",
                                             "value": "submit",
+                                            "raw": "'submit'",
                                             "position": {
                                                 "line": 6,
                                                 "column": 30
@@ -224,6 +225,7 @@
                                         "right": {
                                             "type": "Literal",
                                             "value": "tel",
+                                            "raw": "'tel'",
                                             "position": {
                                                 "line": 6,
                                                 "column": 52
@@ -277,6 +279,7 @@
                                                     "right": {
                                                         "type": "Literal",
                                                         "value": "submit",
+                                                        "raw": "'submit'",
                                                         "position": {
                                                             "line": 6,
                                                             "column": 30
@@ -297,6 +300,7 @@
                                                     "right": {
                                                         "type": "Literal",
                                                         "value": "tel",
+                                                        "raw": "'tel'",
                                                         "position": {
                                                             "line": 6,
                                                             "column": 52
@@ -320,6 +324,7 @@
                                             "right": {
                                                 "type": "Literal",
                                                 "value": "tel",
+                                                "raw": "'tel'",
                                                 "position": {
                                                     "line": 8,
                                                     "column": 33

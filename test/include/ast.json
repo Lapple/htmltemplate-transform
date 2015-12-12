@@ -83,10 +83,10 @@
                             {
                                 "type": "PairAttribute",
                                 "name": "title",
-                                "value": "Nested",
-                                "content": {
+                                "value": {
                                     "type": "Literal",
                                     "value": "Nested",
+                                    "raw": "\"Nested\"",
                                     "position": {
                                         "line": 4,
                                         "column": 15
@@ -175,10 +175,10 @@
                     {
                         "type": "PairAttribute",
                         "name": "title",
-                        "value": "Top level",
-                        "content": {
+                        "value": {
                             "type": "Literal",
                             "value": "Top level",
+                            "raw": "\"Top level\"",
                             "position": {
                                 "line": 4,
                                 "column": 15

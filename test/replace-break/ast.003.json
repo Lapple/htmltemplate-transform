@@ -150,6 +150,7 @@
                                                         "right": {
                                                             "type": "Literal",
                                                             "value": 4,
+                                                            "raw": 4,
                                                             "position": {
                                                                 "line": 6,
                                                                 "column": 36
@@ -379,6 +380,7 @@
                                                         "right": {
                                                             "type": "Literal",
                                                             "value": 10,
+                                                            "raw": 10,
                                                             "position": {
                                                                 "line": 15,
                                                                 "column": 36

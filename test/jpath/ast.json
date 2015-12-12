@@ -294,10 +294,10 @@
             {
                 "type": "PairAttribute",
                 "name": "attribute",
-                "value": "dotted.string",
-                "content": {
+                "value": {
                     "type": "Literal",
                     "value": "dotted.string",
+                    "raw": "\"dotted.string\"",
                     "position": {
                         "line": 6,
                         "column": 15

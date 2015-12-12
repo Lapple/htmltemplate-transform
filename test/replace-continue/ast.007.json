@@ -15,8 +15,7 @@
             {
                 "type": "PairAttribute",
                 "name": "IN",
-                "value": "b_list",
-                "content": {
+                "value": {
                     "type": "Identifier",
                     "name": "b_list",
                     "position": {

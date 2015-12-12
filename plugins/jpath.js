@@ -18,16 +18,14 @@ function jpath() {
             this.update(updated);
         }
 
-        if (node.type === 'PairAttribute' && isJPathAccessToken(node.content)) {
+        if (node.type === 'PairAttribute' && isJPathAccessToken(node.value)) {
             var updated = assign({}, node, {
                 value: {
                     type: 'Expression',
-                    content: accessExpression(node.value),
-                    value: node.value
+                    content: accessExpression(node.value.name),
+                    value: node.value.name
                 }
             });
-
-            delete updated.content;
 
             this.update(updated);
         }

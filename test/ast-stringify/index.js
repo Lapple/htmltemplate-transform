@@ -6,7 +6,7 @@ var parser = require('htmltemplate-parser');
 
 var astStringify = require('../../ast-stringify/');
 
-describe('astStringify', function() {
+xdescribe('astStringify', function() {
     it('should convert AST tree into template string', function() {
         var templateString = fs.readFileSync(
             path.join(__dirname, 'template.tmpl')
