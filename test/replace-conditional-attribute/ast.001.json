@@ -521,10 +521,359 @@
             },
             {
                 "type": "Text",
-                "content": "\n",
+                "content": "\n    ",
                 "position": {
                     "line": 23,
                     "column": 14
+                }
+            },
+            {
+                "type": "HTMLTag",
+                "name": "button",
+                "attributes": [
+                    {
+                        "type": "PairAttribute",
+                        "name": "data-key",
+                        "value": {
+                            "type": "Expression",
+                            "content": {
+                                "type": "ConditionalExpression",
+                                "test": {
+                                    "type": "MemberExpression",
+                                    "object": {
+                                        "type": "Identifier",
+                                        "name": "$button",
+                                        "position": {
+                                            "line": 25,
+                                            "column": 21
+                                        }
+                                    },
+                                    "property": {
+                                        "type": "Literal",
+                                        "value": "available",
+                                        "position": {
+                                            "line": 25,
+                                            "column": 28
+                                        }
+                                    },
+                                    "computed": true
+                                },
+                                "consequent": [
+                                    {
+                                        "type": "Tag",
+                                        "name": "TMPL_VAR",
+                                        "attributes": [
+                                            {
+                                                "type": "Expression",
+                                                "content": {
+                                                    "type": "MemberExpression",
+                                                    "object": {
+                                                        "type": "Identifier",
+                                                        "name": "$button",
+                                                        "position": {
+                                                            "line": 25,
+                                                            "column": 68
+                                                        }
+                                                    },
+                                                    "property": {
+                                                        "type": "Literal",
+                                                        "value": "key",
+                                                        "position": {
+                                                            "line": 25,
+                                                            "column": 75
+                                                        }
+                                                    },
+                                                    "computed": true
+                                                },
+                                                "value": "$button->{key}",
+                                                "position": {
+                                                    "line": 25,
+                                                    "column": 65
+                                                }
+                                            }
+                                        ],
+                                        "position": {
+                                            "line": 25,
+                                            "column": 55
+                                        }
+                                    }
+                                ],
+                                "alternate": {
+                                    "type": "Literal",
+                                    "value": null
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "PairAttribute",
+                        "name": "disabled",
+                        "value": {
+                            "type": "Expression",
+                            "content": {
+                                "type": "ConditionalExpression",
+                                "test": {
+                                    "type": "UnaryExpression",
+                                    "operator": "!",
+                                    "argument": {
+                                        "type": "MemberExpression",
+                                        "object": {
+                                            "type": "Identifier",
+                                            "name": "$button",
+                                            "position": {
+                                                "line": 25,
+                                                "column": 21
+                                            }
+                                        },
+                                        "property": {
+                                            "type": "Literal",
+                                            "value": "available",
+                                            "position": {
+                                                "line": 25,
+                                                "column": 28
+                                            }
+                                        },
+                                        "computed": true
+                                    },
+                                    "prefix": true
+                                },
+                                "consequent": [
+                                    {
+                                        "type": "Literal",
+                                        "value": "true"
+                                    }
+                                ],
+                                "alternate": {
+                                    "type": "ConditionalExpression",
+                                    "test": {
+                                        "type": "BinaryExpression",
+                                        "operator": "&&",
+                                        "left": {
+                                            "type": "MemberExpression",
+                                            "object": {
+                                                "type": "Identifier",
+                                                "name": "$button",
+                                                "position": {
+                                                    "line": 26,
+                                                    "column": 21
+                                                }
+                                            },
+                                            "property": {
+                                                "type": "Literal",
+                                                "value": "available",
+                                                "position": {
+                                                    "line": 26,
+                                                    "column": 28
+                                                }
+                                            },
+                                            "computed": true
+                                        },
+                                        "right": {
+                                            "type": "MemberExpression",
+                                            "object": {
+                                                "type": "Identifier",
+                                                "name": "$button",
+                                                "position": {
+                                                    "line": 26,
+                                                    "column": 45
+                                                }
+                                            },
+                                            "property": {
+                                                "type": "Literal",
+                                                "value": "type",
+                                                "position": {
+                                                    "line": 26,
+                                                    "column": 52
+                                                }
+                                            },
+                                            "computed": true
+                                        }
+                                    },
+                                    "consequent": [
+                                        {
+                                            "type": "Literal",
+                                            "value": true
+                                        }
+                                    ],
+                                    "alternate": {
+                                        "type": "Literal",
+                                        "value": null
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "PairAttribute",
+                        "name": "class",
+                        "value": {
+                            "type": "Expression",
+                            "content": {
+                                "type": "ConditionalExpression",
+                                "test": {
+                                    "type": "BinaryExpression",
+                                    "operator": "&&",
+                                    "left": {
+                                        "type": "MemberExpression",
+                                        "object": {
+                                            "type": "Identifier",
+                                            "name": "$button",
+                                            "position": {
+                                                "line": 26,
+                                                "column": 21
+                                            }
+                                        },
+                                        "property": {
+                                            "type": "Literal",
+                                            "value": "available",
+                                            "position": {
+                                                "line": 26,
+                                                "column": 28
+                                            }
+                                        },
+                                        "computed": true
+                                    },
+                                    "right": {
+                                        "type": "MemberExpression",
+                                        "object": {
+                                            "type": "Identifier",
+                                            "name": "$button",
+                                            "position": {
+                                                "line": 26,
+                                                "column": 45
+                                            }
+                                        },
+                                        "property": {
+                                            "type": "Literal",
+                                            "value": "type",
+                                            "position": {
+                                                "line": 26,
+                                                "column": 52
+                                            }
+                                        },
+                                        "computed": true
+                                    }
+                                },
+                                "consequent": [
+                                    {
+                                        "type": "Text",
+                                        "content": "button-",
+                                        "position": {
+                                            "line": 26,
+                                            "column": 71
+                                        }
+                                    },
+                                    {
+                                        "type": "Tag",
+                                        "name": "TMPL_VAR",
+                                        "attributes": [
+                                            {
+                                                "type": "Expression",
+                                                "content": {
+                                                    "type": "MemberExpression",
+                                                    "object": {
+                                                        "type": "Identifier",
+                                                        "name": "$button",
+                                                        "position": {
+                                                            "line": 26,
+                                                            "column": 91
+                                                        }
+                                                    },
+                                                    "property": {
+                                                        "type": "Literal",
+                                                        "value": "type",
+                                                        "position": {
+                                                            "line": 26,
+                                                            "column": 98
+                                                        }
+                                                    },
+                                                    "computed": true
+                                                },
+                                                "value": "$button->{type}",
+                                                "position": {
+                                                    "line": 26,
+                                                    "column": 88
+                                                }
+                                            }
+                                        ],
+                                        "position": {
+                                            "line": 26,
+                                            "column": 78
+                                        }
+                                    }
+                                ],
+                                "alternate": {
+                                    "type": "Literal",
+                                    "value": null
+                                }
+                            }
+                        }
+                    }
+                ],
+                "content": [
+                    {
+                        "type": "Text",
+                        "content": "\n        OK\n    ",
+                        "position": {
+                            "line": 26,
+                            "column": 131
+                        }
+                    }
+                ],
+                "position": {
+                    "line": 24,
+                    "column": 5
+                }
+            },
+            {
+                "type": "Text",
+                "content": "\n    ",
+                "position": {
+                    "line": 28,
+                    "column": 14
+                }
+            },
+            {
+                "type": "HTMLTag",
+                "name": "div",
+                "attributes": [
+                    {
+                        "type": "PairAttribute",
+                        "name": "class",
+                        "value": {
+                            "type": "Expression",
+                            "content": {
+                                "type": "ConditionalExpression",
+                                "test": {
+                                    "type": "Identifier",
+                                    "name": "$use_inline"
+                                },
+                                "consequent": [
+                                    {
+                                        "type": "Literal",
+                                        "value": "inline"
+                                    }
+                                ],
+                                "alternate": {
+                                    "type": "Literal",
+                                    "value": null
+                                }
+                            }
+                        }
+                    }
+                ],
+                "content": [],
+                "position": {
+                    "line": 29,
+                    "column": 5
+                }
+            },
+            {
+                "type": "Text",
+                "content": "\n",
+                "position": {
+                    "line": 29,
+                    "column": 75
                 }
             }
         ],
@@ -537,7 +886,7 @@
         "type": "Text",
         "content": "\n",
         "position": {
-            "line": 24,
+            "line": 30,
             "column": 7
         }
     }

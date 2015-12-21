@@ -21,4 +21,10 @@
             Next
         </TMPL_IF>
     </button>
+    <button
+        <TMPL_IF [% $button->{available} %]>data-key="<TMPL_VAR [% $button->{key} %]>"<TMPL_ELSE>disabled="true"</TMPL_IF>
+        <TMPL_IF [% $button->{available} && $button->{type} %]>class="button-<TMPL_VAR [% $button->{type} %]>" disabled</TMPL_IF>>
+        OK
+    </button>
+    <div class="block" <TMPL_IF use_inline>class="inline"</TMPL_IF>></div>
 </div>

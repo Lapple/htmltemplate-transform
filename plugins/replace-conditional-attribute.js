@@ -1,3 +1,6 @@
+var assign = require('object-assign');
+var findIndex = require('find-index');
+
 var TRUE_LITERAL = {
     type: 'Literal',
     value: true
@@ -14,38 +17,47 @@ module.exports = function() {
             return;
         }
 
-        if (node.type === 'ConditionalAttribute') {
-            var transformedAttributes = {};
-            var conditions = node.conditions.slice();
+        if (hasConditionalAttributes(node)) {
+            var updatedAttributes = [];
 
-            if (node.otherwise) {
-                conditions.push({
-                    type: 'ConditionBranch',
-                    content: node.otherwise
-                });
-            }
+            node.forEach(function(attribute) {
+                if (!isConditionalAttribute(attribute)) {
+                    updatedAttributes.push(attribute);
 
-            conditions.forEach(function(c, index) {
-                c.content.forEach(function(attr) {
-                    var attributeName = attr.name;
-                    var attributeContent = getConsequentAttributeContent(attr);
+                    return;
+                }
 
-                    var precondition = getPrecondition(
-                        conditions.slice(0, index),
-                        c.condition
-                    );
+                var conditions = attribute.conditions.slice();
 
-                    var expressionContent = {
-                        type: 'ConditionalExpression',
-                        test: precondition,
-                        consequent: attributeContent,
-                        alternate: NULL_LITERAL
-                    };
+                if (attribute.otherwise) {
+                    conditions.push({
+                        type: 'ConditionBranch',
+                        content: attribute.otherwise
+                    });
+                }
 
-                    if (transformedAttributes[attributeName]) {
-                        transformedAttributes[attributeName].value.content.alternate = expressionContent;
-                    } else {
-                        transformedAttributes[attributeName] = {
+                conditions.forEach(function(c, index) {
+                    c.content.forEach(function(attr) {
+                        var attributeName = attr.name;
+                        var attributeContent = getConsequentAttributeContent(attr);
+
+                        var precondition = getPrecondition(
+                            conditions.slice(0, index),
+                            c.condition
+                        );
+
+                        var expressionContent = {
+                            type: 'ConditionalExpression',
+                            test: precondition,
+                            consequent: attributeContent,
+                            alternate: NULL_LITERAL
+                        };
+
+                        var existingAttributeIndex = findIndex(updatedAttributes, function(attribute) {
+                            return attribute.name === attributeName;
+                        });
+
+                        var transformedConditionalAttribute = {
                             type: 'PairAttribute',
                             name: attributeName,
                             value: {
@@ -53,28 +65,21 @@ module.exports = function() {
                                 content: expressionContent
                             }
                         };
-                    }
+
+                        if (existingAttributeIndex === -1) {
+                            updatedAttributes.push(transformedConditionalAttribute);
+                        } else {
+                            if (isTransformedConditionalAttribute(updatedAttributes[existingAttributeIndex])) {
+                                updatedAttributes[existingAttributeIndex].value.content.alternate = expressionContent;
+                            } else {
+                                updatedAttributes[existingAttributeIndex] = transformedConditionalAttribute;
+                            }
+                        }
+                    });
                 });
             });
 
-            this.parent.post(function() {
-                var parentNode = this.node;
-
-                this.update(
-                    parentNode.reduce(function(updatedAttributes, attribute) {
-                        if (attribute === node) {
-                            for (var attributeName in transformedAttributes) {
-                                updatedAttributes.push(transformedAttributes[attributeName]);
-                            }
-                        } else {
-                            updatedAttributes.push(attribute);
-                        }
-
-                        return updatedAttributes;
-                    }, []),
-                    true
-                );
-            });
+            this.update(updatedAttributes, true);
         }
     };
 };
@@ -141,4 +146,23 @@ function and(a, b) {
         left: a,
         right: b
     };
+}
+
+function isConditionalAttribute(node) {
+    return node.type === 'ConditionalAttribute';
+}
+
+function hasConditionalAttributes(node) {
+    return (
+        Array.isArray(node) &&
+        node.some(isConditionalAttribute)
+    );
+}
+
+function isTransformedConditionalAttribute(attribute) {
+    return (
+        attribute.type === 'PairAttribute' &&
+        attribute.value.type === 'Expression' &&
+        attribute.value.content.type === 'ConditionalExpression'
+    );
 }

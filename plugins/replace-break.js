@@ -1,5 +1,6 @@
 var assert = require('assert');
 var assign = require('object-assign');
+var findIndex = require('find-index');
 
 module.exports = function(options) {
     var loops = options.loopTags;
@@ -124,16 +125,6 @@ function assignTag(name, value) {
             }
         ]
     };
-}
-
-function findIndex(list, predicate) {
-    for (var i = 0, len = list.length; i < len; i += 1) {
-        if (predicate(list[i])) {
-            return i;
-        }
-    }
-
-    return -1;
 }
 
 function idGenerator(prefix) {
