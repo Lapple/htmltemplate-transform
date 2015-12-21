@@ -5,13 +5,21 @@
         "attributes": [
             {
                 "type": "SingleAttribute",
-                "name": "inc_nested_include_inc"
+                "name": "inc_include_inc_decorated_title_local"
             }
         ],
         "content": [
             {
+                "type": "Text",
+                "content": "\n    ",
+                "position": {
+                    "line": 1,
+                    "column": 29
+                }
+            },
+            {
                 "type": "HTMLTag",
-                "name": "h2",
+                "name": "b",
                 "attributes": [],
                 "content": [
                     {
@@ -23,17 +31,103 @@
                                 "name": "title",
                                 "value": null,
                                 "position": {
-                                    "line": 1,
-                                    "column": 15
+                                    "line": 2,
+                                    "column": 18
                                 }
                             }
                         ],
                         "position": {
-                            "line": 1,
-                            "column": 5
+                            "line": 2,
+                            "column": 8
                         }
                     }
                 ],
+                "position": {
+                    "line": 2,
+                    "column": 5
+                }
+            },
+            {
+                "type": "Text",
+                "content": "\n",
+                "position": {
+                    "line": 2,
+                    "column": 28
+                }
+            }
+        ]
+    },
+    {
+        "type": "Tag",
+        "name": "TMPL_BLOCK",
+        "attributes": [
+            {
+                "type": "SingleAttribute",
+                "name": "inc_nested_include_inc_decorated_title_local"
+            }
+        ],
+        "content": [
+            {
+                "type": "Text",
+                "content": "\n    ",
+                "position": {
+                    "line": 1,
+                    "column": 29
+                }
+            },
+            {
+                "type": "HTMLTag",
+                "name": "u",
+                "attributes": [],
+                "content": [
+                    {
+                        "type": "Tag",
+                        "name": "TMPL_VAR",
+                        "attributes": [
+                            {
+                                "type": "SingleAttribute",
+                                "name": "title",
+                                "value": null,
+                                "position": {
+                                    "line": 2,
+                                    "column": 18
+                                }
+                            }
+                        ],
+                        "position": {
+                            "line": 2,
+                            "column": 8
+                        }
+                    }
+                ],
+                "position": {
+                    "line": 2,
+                    "column": 5
+                }
+            },
+            {
+                "type": "Text",
+                "content": "\n",
+                "position": {
+                    "line": 2,
+                    "column": 28
+                }
+            }
+        ]
+    },
+    {
+        "type": "Tag",
+        "name": "TMPL_BLOCK",
+        "attributes": [
+            {
+                "type": "SingleAttribute",
+                "name": "inc_nested_include_inc"
+            }
+        ],
+        "content": [
+            {
+                "type": "Text",
+                "content": "",
                 "position": {
                     "line": 1,
                     "column": 1
@@ -41,10 +135,55 @@
             },
             {
                 "type": "Text",
+                "content": "\n\n",
+                "position": {
+                    "line": 3,
+                    "column": 14
+                }
+            },
+            {
+                "type": "HTMLTag",
+                "name": "h2",
+                "attributes": [],
+                "content": [
+                    {
+                        "type": "Tag",
+                        "name": "TMPL_INLINE",
+                        "attributes": [
+                            {
+                                "type": "SingleAttribute",
+                                "name": "inc_nested_include_inc_decorated_title_local"
+                            },
+                            {
+                                "type": "PairAttribute",
+                                "name": "title",
+                                "value": {
+                                    "type": "Identifier",
+                                    "name": "title",
+                                    "position": {
+                                        "line": 5,
+                                        "column": 40
+                                    }
+                                },
+                                "position": {
+                                    "line": 5,
+                                    "column": 34
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "position": {
+                    "line": 5,
+                    "column": 1
+                }
+            },
+            {
+                "type": "Text",
                 "content": "\n",
                 "position": {
-                    "line": 1,
-                    "column": 26
+                    "line": 5,
+                    "column": 51
                 }
             }
         ]
@@ -60,16 +199,75 @@
         ],
         "content": [
             {
+                "type": "Text",
+                "content": "",
+                "position": {
+                    "line": 1,
+                    "column": 1
+                }
+            },
+            {
+                "type": "Text",
+                "content": "\n\n",
+                "position": {
+                    "line": 3,
+                    "column": 14
+                }
+            },
+            {
                 "type": "HTMLTag",
                 "name": "h1",
                 "attributes": [],
                 "content": [
                     {
                         "type": "Text",
-                        "content": "\n    Included\n    ",
+                        "content": "\n    ",
                         "position": {
-                            "line": 1,
+                            "line": 5,
                             "column": 5
+                        }
+                    },
+                    {
+                        "type": "Tag",
+                        "name": "TMPL_INLINE",
+                        "attributes": [
+                            {
+                                "type": "SingleAttribute",
+                                "name": "inc_include_inc_decorated_title_local"
+                            },
+                            {
+                                "type": "PairAttribute",
+                                "name": "title",
+                                "value": {
+                                    "type": "Expression",
+                                    "content": {
+                                        "type": "Literal",
+                                        "value": "Included",
+                                        "raw": "'Included'",
+                                        "position": {
+                                            "line": 7,
+                                            "column": 18
+                                        }
+                                    },
+                                    "value": "'Included'",
+                                    "position": {
+                                        "line": 7,
+                                        "column": 15
+                                    }
+                                },
+                                "position": {
+                                    "line": 7,
+                                    "column": 9
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Text",
+                        "content": "\n    ",
+                        "position": {
+                            "line": 7,
+                            "column": 32
                         }
                     },
                     {
@@ -88,12 +286,12 @@
                                     "value": "Nested",
                                     "raw": "\"Nested\"",
                                     "position": {
-                                        "line": 4,
+                                        "line": 9,
                                         "column": 15
                                     }
                                 },
                                 "position": {
-                                    "line": 4,
+                                    "line": 9,
                                     "column": 9
                                 }
                             }
@@ -103,13 +301,13 @@
                         "type": "Text",
                         "content": "\n",
                         "position": {
-                            "line": 4,
+                            "line": 9,
                             "column": 24
                         }
                     }
                 ],
                 "position": {
-                    "line": 1,
+                    "line": 5,
                     "column": 1
                 }
             },
@@ -117,7 +315,7 @@
                 "type": "Text",
                 "content": "\n",
                 "position": {
-                    "line": 5,
+                    "line": 10,
                     "column": 6
                 }
             }

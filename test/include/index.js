@@ -20,7 +20,7 @@ describe('include transform', function() {
         var ast = transform(this.template)
             .using(
                 include({
-                    includeTags: ['TMPL_INCLUDE'],
+                    includeTags: ['TMPL_INCLUDE', 'TMPL_INLINE'],
                     resolvePath: function(tagname, from, to) {
                         return path.resolve(path.dirname(from), to);
                     }
