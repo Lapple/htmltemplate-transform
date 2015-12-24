@@ -1,5 +1,6 @@
 var assert = require('assert');
 var assign = require('object-assign');
+var findLastIndex = require('find-index/findLastIndex');
 
 var NON_WHITESPACE = /\S/;
 
@@ -22,7 +23,7 @@ module.exports = function(options) {
         if (node.name === 'TMPL_CONTINUE') {
             var parents = this.parents;
 
-            var closestLoopIndex = lastIndexOf(parents, function(parent) {
+            var closestLoopIndex = findLastIndex(parents, function(parent) {
                 return isLoop(parent.node);
             });
 
@@ -30,7 +31,7 @@ module.exports = function(options) {
                 return parent.node.type === 'Condition';
             });
 
-            var closestContentNodeIndex = lastIndexOf(this.path, function(segment, index, path) {
+            var closestContentNodeIndex = findLastIndex(this.path, function(segment, index, path) {
                 return (
                     (index >= 2 && path[index - 2] === 'otherwise') ||
                     (index >= 3 && path[index - 3] === 'conditions')
@@ -231,16 +232,6 @@ function index(nodeContext) {
 
 function last(list) {
     return list[list.length - 1];
-}
-
-function lastIndexOf(list, fn) {
-    for (var i = (list.length - 1); i >= 0; i -= 1) {
-        if (fn(list[i], i, list)) {
-            return i;
-        }
-    }
-
-    return -1;
 }
 
 function pathKey(path) {
