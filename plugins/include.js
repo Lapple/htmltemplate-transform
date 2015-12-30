@@ -56,21 +56,23 @@ function inline(options) {
         }
 
         if (isBlockTag(node)) {
-            var blockName = getPrimaryAttributeValue(node.attributes);
+            this.after(function() {
+                var blockName = getPrimaryAttributeValue(node.attributes);
 
-            var id = filepathAsBlockId(
-                getLocalBlockIdentifier(blockName, state.parentFilePath, state.rootFilepath)
-            );
+                var id = filepathAsBlockId(
+                    getLocalBlockIdentifier(blockName, state.parentFilePath, state.rootFilepath)
+                );
 
-            blocks.push({
-                id: id,
-                content: node.content
-            });
+                blocks.push({
+                    id: id,
+                    content: node.content
+                });
 
-            this.update({
-                type: 'Text',
-                content: '',
-                position: node.position
+                this.update({
+                    type: 'Text',
+                    content: '',
+                    position: node.position
+                });
             });
         }
 

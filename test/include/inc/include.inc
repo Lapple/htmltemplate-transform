@@ -1,5 +1,9 @@
-<TMPL_BLOCK decorated_title>
+<TMPL_BLOCK delegated_title>
     <b><TMPL_VAR title></b>
+</TMPL_BLOCK>
+
+<TMPL_BLOCK decorated_title>
+    <b><TMPL_INLINE delegated_title title=title></b>
 </TMPL_BLOCK>
 
 <h1>
