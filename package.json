@@ -1,6 +1,6 @@
 {
   "name": "htmltemplate-transform",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Pluggable transforms for HTML::Template",
   "main": "index.js",
   "scripts": {
