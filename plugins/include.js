@@ -79,12 +79,7 @@ function inline(options) {
         if (tags.indexOf(node.name) !== -1) {
             var blockName = getPrimaryAttributeValue(node.attributes);
             var filepath = resolvePath(node.name, state.parentFilePath, blockName);
-            var extname = path.extname(filepath);
-
-            var isFileInclude = (
-                extname === '.inc' ||
-                extname === '.tmpl'
-            );
+            var isFileInclude = path.extname(filepath) !== '';
 
             var id = filepathAsBlockId(
                 // Resolving the included filepath against root filepath to
